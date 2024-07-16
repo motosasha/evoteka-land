@@ -1,0 +1,61 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/brand-text";
+@use "../../scss/mixins/text-styles";
+
+.tile-center {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+  padding: 110px 24px 12px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  border-radius: 18px;
+
+  @media screen and (min-width: breakpoints.$screen-t) {
+    padding: 160px 16px 12px;
+  }
+
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    padding: 110px 16px 12px;
+  }
+
+  @media screen and (min-width: breakpoints.$screen-d) {
+    padding: 120px 34px 32px;
+  }
+
+  &__info {
+    position: relative;
+    z-index: var(--z-index-base);
+    display: grid;
+    gap: 8px;
+  }
+
+  &__title {
+    @include brand-text.brand-text;
+    @include text-styles.mobile-heading-2;
+
+    text-align: center;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+    	@include text-styles.heading-3;
+    }
+  }
+
+  &__descr {
+    @include text-styles.mobile-text-1;
+
+    max-width: 336px;
+    text-align: center;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      @include text-styles.text-big;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    object-fit: cover;
+  }
+}

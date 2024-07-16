@@ -1,0 +1,180 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/text-styles";
+
+.select {
+  $block-name: &; // #{$block-name}__element
+
+  @include text-styles.mobile-text-1;
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 50px;
+  padding: 15px 40px 15px 20px;
+  overflow: hidden;
+  color: inherit;
+  background: url("../{{icon}}/icon__arrow--down-view") right 15px top 13px no-repeat, var(--back-secondary);
+  background-size: 24px 24px;
+  border: 1px solid var(--grey-lighten);
+  border-radius: 16px;
+  outline: none;
+  cursor: pointer;
+  transition: all var(--transition-default);
+  appearance: none;
+  user-select: none;
+
+  @media screen and (min-width: breakpoints.$screen-d) {
+    @include text-styles.text-big;
+  }
+
+  &[aria-expanded="true"] {
+    border: 1px solid var(--input-focus-color);
+  }
+
+  &.ss-main.ss-disabled {
+    color: inherit;
+    cursor: not-allowed;
+  }
+
+  .ss-hide {
+    display: none !important;
+  }
+
+  &.ss-main .ss-values {
+    display: inline-flex;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+  }
+
+  &.ss-main .ss-values .ss-single {
+    display: flex;
+    margin: auto 0;
+  }
+
+  &.ss-main .ss-deselect {
+    display: flex;
+    flex: 0 1 auto;
+    align-self: center;
+    justify-content: flex-end;
+    width: 8px;
+    height: 8px;
+    margin: 0;
+  }
+
+  &.ss-main .ss-deselect svg {
+    width: 8px;
+    height: 8px;
+  }
+
+  &.ss-main .ss-deselect svg path {
+    fill: none;
+    stroke-width: 20;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &.ss-main .ss-arrow {
+    display: none;
+  }
+
+  &.ss-content {
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    max-height: 248px;
+    padding: 0;
+    overflow: hidden;
+    background: var(--back-secondary);
+    background-clip: padding-box;
+    border: none;
+    border-radius: 16px;
+    box-shadow: var(--shadow-select-drop);
+    transform: scaleY(0);
+    transform-origin: center top;
+    opacity: 0;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  &.ss-content.ss-relative {
+    position: relative;
+    height: 100%;
+  }
+
+  &.ss-content.ss-open-above {
+    flex-direction: column-reverse;
+    transform: scaleY(1) translateY(-1px);
+    transform-origin: center bottom;
+    opacity: 1;
+  }
+
+  &.ss-content.ss-open-below {
+    transform: scaleY(1) translateY(2px);
+    transform-origin: center top;
+    opacity: 1;
+  }
+
+  &.ss-content .ss-search {
+    display: none;
+  }
+
+  &.ss-content .ss-list {
+    flex: 1 1 auto;
+    height: auto;
+    overflow: hidden auto;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background: #000;
+    }
+  }
+
+  &.ss-content .ss-list .ss-option {
+    @include text-styles.mobile-text-1;
+
+    display: flex;
+    padding: 16px 32px 16px 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &.ss-content .ss-list .ss-option:hover {
+    background-color: rgba(132 6 98 / 5%);
+  }
+
+  &.ss-content .ss-list .ss-option.ss-selected {
+    @include text-styles.mobile-text-1;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      @include text-styles.text-big;
+    }
+  }
+
+  & .simplebar-wrapper {
+    max-height: 232px;
+  }
+
+  .simplebar-track.simplebar-vertical {
+    top: 8px;
+    right: 16px;
+    bottom: 8px;
+    width: 8px;
+    background: transparent;
+    border-radius: 4px;
+  }
+
+  .simplebar-scrollbar::before {
+    inset: 0;
+    background: var(--scrollbar-bg);
+    border-radius: 4px;
+  }
+
+  .simplebar-scrollbar.simplebar-visible::before {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,62 @@
+//- Все примеси в этом файле должны начинаться c имени блока (header)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin header(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +header("some-mod")
+
+  //- список модификаторов
+  -
+    var allMods = "";
+    if (typeof (mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " header--" + modsList[i].trim();
+      }
+    }
+
+  header.header(class=allMods)&attributes(attributes)
+    .header__inner
+      .header__logo
+        svg.logo
+          use(href= path.icon + "logo__evoteka")
+      .header__nav-wrap
+        nav.header__nav
+          a.header__nav-item(href="#about") О сервисе
+          a.header__nav-item(href="#forWhom") Кому подойдет?
+          a.header__nav-item(href="#method") Принцип работы
+          a.header__nav-item(href="#rates") Тарифы
+      .header__actions
+        .header__row
+          a.header__phone(href="tel:88000000000") 8-800-000-00-00
+          .header__socials
+            a.header__social-link(href="#", target="_blank")
+              svg.header__social-icon
+                use(href= path.icon + "icon__socials--wa")
+            a.header__social-link(href="#", target="_blank")
+              svg.header__social-icon
+                use(href= path.icon + "icon__socials--tg")
+      button.header__menu(data-menu-trigger)
+        .burger
+          .burger__line
+          .burger__line
+          .burger__line
+    .header__drop
+      nav.header__nav
+        a.header__nav-item(href="#about") О сервисе
+        a.header__nav-item(href="#forWhom") Кому подойдет?
+        a.header__nav-item(href="#method") Принцип работы
+        a.header__nav-item(href="#rates") Тарифы
+      .header__row
+        a.header__phone(href="tel:88000000000") 8-800-000-00-00
+        .header__socials
+          a.header__social-link(href="#", target="_blank")
+            svg.header__social-icon
+              use(href= path.icon + "icon__socials--wa")
+          a.header__social-link(href="#", target="_blank")
+            svg.header__social-icon
+              use(href= path.icon + "icon__socials--tg")

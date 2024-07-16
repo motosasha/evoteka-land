@@ -1,0 +1,83 @@
+stages:
+  - deployDevelopment
+  - removeDevelopment
+  - dockerManagement
+
+# Изменить projectName и gitLink под свой проект
+variables:
+  projectName: "[projectName]"
+  gitLink: "git@gitlab.thecoders.ru:[userName]/[projectName].git"
+
+  # Настойка доменов
+  domainName: "$CI_COMMIT_BRANCH.$projectName.$rootDomain"
+
+deploy:
+  stage: deployDevelopment
+  when: manual
+  tags:
+    - docker
+  script:
+    # Получаем свободные порты и создаём нужные домены
+    - tool bind_ports 1
+    - tool bind_domain $domainName $(tool get_port 1)
+    # Создание рабочей директории
+    - mkdir -p $developmentDir/$projectName/$domainName
+
+    # Выгрузка проекта с гита
+    - cd $developmentDir/$projectName/$domainName
+    - git clone --branch $CI_COMMIT_BRANCH $gitLink .
+
+    # Скопируем файлы с окружениями для запуска докера
+    - cp $developmentDir/$projectName/$domainName/.env.example $developmentDir/$projectName/$domainName/.env
+    - tool set_env NGINX_HOST $domainName $developmentDir/$projectName/$domainName/.env
+    - tool set_env NGINX_LOCAL_PORT $(tool get_port 1) $developmentDir/$projectName/$domainName/.env
+    - tool set_env PROJECT_NAME $projectName-$CI_COMMIT_BRANCH $developmentDir/$projectName/$domainName/.env
+
+    # Соберем фронт
+    - nvm install 20 # Или иная нужная версия node.js
+    - npm i
+    - npm run build
+
+    # Собираем стак и выполняем всё необходимые операции чтобы проект поднялся сам.
+    - docker compose up -d --build
+    - tool init_stage
+
+remove:
+  stage: removeDevelopment
+  when: manual
+  tags:
+    - docker
+  script:
+    - cd $developmentDir/$projectName/$domainName || echo "Идем дальше"
+    - docker-compose down -v  || echo "Идем дальше"
+    - rm -fr $developmentDir/$projectName/$domainName || echo "Идем дальше"
+    - tool down_domain $domainName || echo "Идем дальше"
+    - tool init_stage
+
+# По пушу в ветку будет запускаться обновление
+update:
+  stage: dockerManagement
+  tags:
+    - docker
+  script:
+    - cd $developmentDir/$projectName/$domainName
+    - git add .
+    - git reset --hard
+    - git pull
+    # Соберем фронт
+    - nvm install 20 # Или иная нужная версия node.js
+    - npm i
+    - npm run build
+
+    # Собираем стак и выполняем всё необходимые операции чтобы проект поднялся сам.
+    - docker compose up -d --build
+    - tool init_stage
+
+restart:
+  stage: dockerManagement
+  when: manual
+  tags:
+    - docker
+  script:
+    # Рестарт докера
+    - cd $developmentDir/$projectName/$domainName && docker compose restart

@@ -1,0 +1,89 @@
+@use "breakpoints";
+@use "mixins/text-styles";
+@use "sass:color";
+
+:root {
+  // color primitives
+  --color-black: #000;
+  --color-white: #fff;
+
+  --white: #ffffff;       // White
+  --grey-lighten: #e9e9e9;
+  --grey-light: #bdbdbd;  // Disabled
+  --grey: #8a8a8a;        // Grey-text
+  --grey-dark: #7b7b7b;   // Greay
+  --black: #222222;       // Black
+  --black-transparent: rgba(0 0 0 / 70%);
+  --pink: #fff0f4;
+  --purple: #970e5f;
+  --red: #da2852;
+
+  // fonts
+  --font-sans:
+    "Onest", system-ui, Inter, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu",
+    "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  // base
+  --body-bg: var(--back-primary);
+  --body-color: var(--front-primary);
+  --font-base: var(--font-sans);
+  --font-size-root: 100%;
+  --font-size-base: 1rem;
+  --font-weight-base: 400;
+  --line-height-base: 1.25;
+
+  // semantic colors
+  --front-primary: var(--black);
+  --front-secondary: var(--grey-dark);
+  --front-inverted: var(--white);
+
+  --back-primary: var(--pink);
+  --back-secondary: var(--white);
+  --back-tertiary: var(--black);
+
+  --darker-bg-color: var(--black-transparent);
+
+  --link-hover-color: var(--red);
+  --link-active-color: var(--purple);
+  --input-focus-color: var(--purple);
+
+  --brand-gradient: linear-gradient(85deg, var(--purple) 0%, var(--red) 100%);
+  --block-gradient: linear-gradient(90deg, #fef0e1 0%, #ffe6cb 100%);
+  --scrollbar-bg: #cdcecf;
+
+  // transitions
+  --transition-fast: 0.125s ease;
+  --transition-default: 0.25s ease;
+  --transition-slow: 0.75s ease;
+  --transition-slower: 1.5s ease;
+
+  // shadows
+  --shadow-dropmenu: 0 4px 14px 0 rgba(0, 0, 0, 0.24);
+  --shadow-select-drop: 0 4px 14px 0 rgba(0, 0, 0, 0.24);
+  --button-shadow: 0px 4px 45px 0px rgba(0, 0, 0, 0.25);
+
+  // z-index
+  --z-index-dropnav: 4;
+  --z-index-header: 3;
+  --z-index-darker: 2;
+  --z-index-base: 1;
+
+  // layout
+  --max-width: 1296px;
+
+  --page-padding: 0;
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    --page-padding: 0;
+  }
+  @media screen and (min-width: breakpoints.$screen-d) {
+    --page-padding: 52px;
+  }
+
+  --header-height: 90px;
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    --header-height: 98px;
+  }
+}

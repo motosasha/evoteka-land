@@ -1,0 +1,221 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/button-reset";
+@use "../../scss/mixins/link-reset";
+@use "../../scss/mixins/text-styles";
+
+.header {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 25px 16px;
+  background-color: var(--back-secondary);
+  border-radius: 0 0 24px 24px;
+
+  @media screen and (min-width: breakpoints.$screen-t) {
+    padding: 25px 24px;
+  }
+
+  @media screen and (min-width: breakpoints.$screen-d) {
+    padding: 25px 38px 25px 34px;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    @include button-reset.button-reset;
+
+    width: 168px;
+    height: 40px;
+    outline: none;
+    transition: scale var(--transition-default);
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      width: 211px;
+      height: 50px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        scale: 1.0125;
+      }
+
+      &:active {
+        scale: 0.9975;
+      }
+    }
+  }
+
+  &__nav-wrap {
+    display: none;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      display: block;
+      margin-left: auto;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    gap: 14px;
+    justify-items: start;
+    padding: 7px 0;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      gap: 12px;
+      padding: 6px 0;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+    	display: flex;
+      gap: 18px;
+    }
+  }
+
+  &__nav-item {
+    @include link-reset.link-reset;
+    @include text-styles.mobile-text-1;
+
+    color: var(--black);
+    transition: all var(--transition-default);
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      @include text-styles.text-big
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--link-hover-color);
+      }
+
+      &:active {
+        scale: 0.975;
+      }
+    }
+  }
+
+  &__actions {
+    display: none;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      display: block;
+      margin-left: auto;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      margin-left: 24px;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      #{$block-name}__drop & {
+        display: none;
+      }
+    }
+  }
+
+  &__phone {
+    @include link-reset.link-reset;
+
+    color: var(--black);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.2223;
+    transition: all var(--transition-default);
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+    	@include text-styles.mobile-heading-2;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--link-hover-color);
+      }
+
+      &:active {
+        scale: 0.975;
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__social-link {
+    transition: all var(--transition-default);
+
+    @media (hover: hover) {
+      &:hover {
+        scale: 1.05;
+      }
+
+      &:active {
+        scale: 0.975;
+      }
+    }
+  }
+
+  &__social-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  &__menu {
+    @include button-reset.button-reset;
+
+    width: 45px;
+    height: 27px;
+    margin-left: 24px;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      display: none;
+    }
+  }
+
+  &__drop {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 16px;
+    left: 16px;
+    z-index: var(--z-index-dropnav);
+    display: grid;
+    gap: 12px;
+    padding: 16px;
+    background-color: var(--back-secondary);
+    border-radius: 16px;
+    box-shadow: var(--shadow-dropmenu);
+    transform: translateY(-24px);
+    opacity: 0;
+    transition: all var(--transition-default);
+    pointer-events: none;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      top: calc(100% - 20px);
+      left: auto;
+      transform: translateY(24px);
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      display: none;
+    }
+
+    [data-state="nav-open"] & {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}

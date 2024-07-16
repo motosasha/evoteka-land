@@ -1,0 +1,179 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/flexbox";
+@use "../../scss/mixins/text-styles";
+
+.popup {
+  $block-name: &; // #{$block-name}__element
+
+  width: calc(100% - 32px);
+  max-width: 560px;
+  margin: 0 auto;
+
+  @media screen and (min-width: breakpoints.$screen-d) {
+    max-width: 636px;
+  }
+
+  &__inner {
+    position: relative;
+    padding: 16px;
+    background-color: var(--back-secondary);
+    border-radius: 24px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      padding: 54px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      padding: 76px;
+    }
+  }
+
+  &__close {
+    top: 16px;
+    right: 16px;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      top: 24px;
+      right: 24px;
+    }
+  }
+
+  &__icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  &__header {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  &__heading {
+    @include text-styles.mobile-heading-1-1;
+
+    margin: 0;
+    text-align: center;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+    	@include text-styles.mobile-heading-1;
+    }
+  }
+
+  &__descr {
+    @include text-styles.text-small;
+
+    margin: 0;
+    color: var(--front-secondary);
+    text-align: center;
+  }
+
+  &__form {
+    padding-top: 38px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      padding: 32px 0;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      padding: 0;
+    }
+
+    .form__small { // stylelint-disable-line
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    .button {
+      margin-top: 8px;
+
+      @media screen and (min-width: breakpoints.$screen-d) {
+        width: 100%;
+        max-width: none;
+      }
+    }
+  }
+
+  &__center {
+    padding-top: 38px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 0;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      padding: 8px 0;
+    }
+
+    .button {
+      margin: 0 auto;
+
+      @media screen and (min-width: breakpoints.$screen-t) {
+        width: 254px;
+      }
+    }
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+    padding: 12px;
+    background: var(--block-gradient);
+    border-radius: 16px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      padding: 24px 34px 26px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      padding: 24px 34px;
+    }
+  }
+
+  &__block-title {
+    @include text-styles.mobile-text-big;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      font-weight: 600;
+      font-size: 24px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      font-size: 26px;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 18px;
+  }
+
+  &__social-link {
+    transition: all var(--transition-default);
+
+    @media (hover: hover) {
+      &:hover {
+        scale: 1.05;
+      }
+
+      &:active {
+        scale: 0.975;
+      }
+    }
+  }
+
+  &__social-icon {
+    width: 48px;
+    height: 48px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+    	width: 64px;
+    	height: 64px;
+    }
+  }
+}

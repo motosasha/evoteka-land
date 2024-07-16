@@ -1,0 +1,65 @@
+@use "../breakpoints";
+
+@mixin mobile-heading-1() {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.2368;
+}
+
+@mixin mobile-heading-1-1() {
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+}
+
+@mixin mobile-heading-2() {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+@mixin heading-1() {
+  font-weight: 600;
+  font-size: 58px;
+  line-height: 64px;
+}
+
+@mixin heading-2() {
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 50px;
+}
+
+@mixin heading-3() {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+@mixin mobile-text-1($weight: 400) {
+  font-weight: $weight;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+@mixin mobile-text-big() {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+@mixin text-big() {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@mixin text-big-2() {
+  font-weight: 500;
+  font-size: 26px;
+}
+
+@mixin text-small($weight: 400) {
+  font-weight: $weight;
+  font-size: 14px;
+  line-height: 1.25;
+}

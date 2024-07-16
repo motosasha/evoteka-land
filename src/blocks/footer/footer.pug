@@ -1,0 +1,51 @@
+//- Все примеси в этом файле должны начинаться c имени блока (footer)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin footer(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +footer("some-mod")
+
+  //- список модификаторов
+  -
+    var allMods = "";
+    if (typeof (mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " footer--" + modsList[i].trim();
+      }
+    }
+
+  .footer(class=allMods)&attributes(attributes)
+    .footer__inner
+      .footer__side
+        .footer__logo
+          svg.logo
+            use(href= path.icon + "logo__evoteka")
+        .footer__descr Ваш IT-партнер полного цикла, с собственной продуктовой аналитикой, дизайном, веб-и мобильной разработкой
+        .footer__copy #[span] © ООО «Эвотека». Все права защищены
+      .footer__main
+        .footer__links
+          .footer__links-section
+            .footer__links-title Компания
+            .footer__links-body
+              a.footer__link(href="#") О нас
+              a.footer__link(href="#") Вакансии
+              a.footer__link(href="#") Контакты
+          .footer__links-section
+            .footer__links-title Услуги
+            .footer__links-body
+              a.footer__link(href="#") Сайты и веб-сервисы
+              a.footer__link(href="#") Мобильная разработка
+              a.footer__link(href="#") Маркетинговый калькулятор
+          .footer__links-section
+            .footer__links-title Практика
+            .footer__links-body
+              a.footer__link(href="#") Кейсы
+              a.footer__link(href="#") Блог и новости
+        .footer__contacts
+          address.footer__contacts-item #[span Офис продаж:] Респ. Татарстан, г. Казань, ул. Спартаковская 2, «IT-Park Имени Башира Рамеева», 2 этаж, оф. 210
+          .footer__contacts-item #[span ИНН:] 1658201149

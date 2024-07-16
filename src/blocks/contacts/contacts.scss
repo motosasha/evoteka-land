@@ -1,0 +1,119 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/brand-text";
+@use "../../scss/mixins/flexbox";
+@use "../../scss/mixins/text-styles";
+
+.contacts {
+  $block-name: &; // #{$block-name}__element
+
+  &__inner {
+    display: grid;
+    gap: 24px;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      gap: 40px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 24px;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      gap: 100px;
+    }
+  }
+
+  &__map {
+    height: 420px;
+    overflow: hidden;
+    border-radius: 24px;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      height: 100%;
+    }
+
+    iframe {
+      height: 100%;
+    }
+  }
+
+  &__row {
+    display: grid;
+    gap: 16px;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      grid-template-columns: 1fr 1fr 2fr;
+      gap: 110px;
+    }
+  }
+
+  &__item {
+    @include flexbox.flex-column;
+
+    gap: 8px;
+  }
+
+  &__label {
+    @include text-styles.mobile-text-1;
+
+    color: var(--front-secondary);
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      @include text-styles.text-big
+    }
+  }
+
+  &__descr {
+    @include text-styles.mobile-text-1;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      @include text-styles.text-big
+    }
+  }
+
+  &__link {
+    @include brand-text.brand-text;
+    @include text-styles.mobile-heading-2;
+
+    transition: scale var(--transition-default);
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      @include text-styles.heading-3;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        scale: 1.0125;
+      }
+
+      &:active {
+        scale: 0.9975;
+      }
+    }
+  }
+
+  & { // stylelint-disable-line
+    .form__submit { // stylelint-disable-line
+      width: 100%;
+      max-width: none;
+
+      @media screen and (min-width: breakpoints.$screen-d) {
+        width: 254px;
+      }
+    }
+
+    .form__small { // stylelint-disable-line
+      max-width: 480px;
+    }
+  }
+}

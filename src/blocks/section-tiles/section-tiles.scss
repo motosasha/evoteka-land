@@ -1,0 +1,137 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/brand-text";
+@use "../../scss/mixins/list-reset";
+@use "../../scss/mixins/text-styles";
+
+.section-tiles {
+  $block-name: &; // #{$block-name}__element
+
+  .section__title { // stylelint-disable-line
+    margin-right: auto;
+    margin-left: auto;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      width: 400px;
+      text-align: center;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      width: 700px;
+      margin-bottom: 34px;
+    }
+  }
+
+  &__row {
+    display: grid;
+    gap: 16px;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+    	grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 26px;
+    }
+
+    &--cols {
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+
+      @media screen and (min-width: breakpoints.$screen-t) {
+        gap: 16px;
+      }
+    }
+
+    &--high {
+      justify-items: center;
+
+      @media screen and (min-width: breakpoints.$screen-ti) {
+        grid-template-columns: 1fr;
+      }
+
+      @media screen and (min-width: breakpoints.$screen-tl) {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      @media screen and (min-width: breakpoints.$screen-d) {
+        grid-template-columns: repeat(6, 1fr);
+        margin-bottom: 128px;
+      }
+    }
+  }
+
+  &__list {
+    @include list-reset.list-reset;
+
+    display: grid;
+    gap: 16px;
+    padding-bottom: 24px;
+    counter-reset: list;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+    	grid-template-columns: 1fr 1fr;
+      padding-bottom: 0;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    position: relative;
+    counter-increment: list;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      width: calc(25% - 12px);
+    }
+
+    &::before {
+      @include text-styles.mobile-heading-2;
+      @include brand-text.brand-text;
+
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      content: counter(list);
+    }
+  }
+
+  &__descr {
+    @include text-styles.mobile-text-big;
+
+    margin-bottom: 16px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      @include text-styles.text-big;
+
+      text-align: center;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      margin-bottom: 24px;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  &__button {
+    margin: 16px auto 32px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      width: 343px;
+      margin: 16px auto 8px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      width: 314px;
+      margin: 24px auto 0;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  nginx:
+    container_name: nginx-${PROJECT_NAME}
+    image: nginx:latest
+    ports:
+      - ${NGINX_LOCAL_PORT}:80
+    volumes:
+      - ${BUILD_PATH}:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf

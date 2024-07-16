@@ -1,0 +1,143 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/link-reset";
+@use "../../scss/mixins/text-styles";
+
+.footer {
+  $block-name: &; // #{$block-name}__element
+
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 16px;
+  background: var(--back-secondary);
+  border-radius: 24px 24px 0 0;
+
+  @media screen and (min-width: breakpoints.$screen-t) {
+    padding: 24px;
+  }
+
+  @media screen and (min-width: breakpoints.$screen-d) {
+    padding: 34px;
+  }
+
+  &__inner {
+    display: grid;
+    gap: 24px;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+    	grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      grid-template-columns: repeat(8, 1fr);
+    }
+  }
+
+  &__side {
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      grid-column: 1 / 2;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__main {
+    display: grid;
+    gap: 24px;
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      grid-column: 2 / 4;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      grid-column: 4 / 9;
+      gap: 40px;
+    }
+  }
+
+  &__logo {
+    width: 253px;
+    height: 60px;
+  }
+
+  &__descr {
+    @include text-styles.text-small;
+
+    margin-top: 16px;
+    color: var(--front-secondary);
+  }
+
+  &__copy {
+    @include text-styles.text-small(500);
+
+    margin-top: 12px;
+  }
+
+  &__links {
+    display: grid;
+    gap: 30px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: breakpoints.$screen-tl) {
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      grid-template-columns: 3fr 5fr 2fr;
+    }
+  }
+
+  &__links-section {
+    display: grid;
+    gap: 18px;
+    align-content: start;
+  }
+
+  &__links-title {
+    @include text-styles.text-small(500);
+
+    color: var(--front-secondary);
+  }
+
+  &__links-body {
+    display: grid;
+    gap: 14px;
+    justify-items: start;
+  }
+
+  &__link {
+    @include link-reset.link-reset;
+    @include text-styles.mobile-text-1(500);
+
+    transition: all var(--transition-default);
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--link-hover-color);
+      }
+
+      &:active {
+        scale: 0.975;
+      }
+    }
+  }
+
+  &__contacts-item {
+    @include text-styles.text-small;
+
+    font-style: normal;
+
+    span {
+      color: var(--front-secondary);
+    }
+  }
+}

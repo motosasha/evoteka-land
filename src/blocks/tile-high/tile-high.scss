@@ -1,0 +1,121 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/brand-text";
+@use "../../scss/mixins/text-styles";
+
+.tile-high {
+  $block-name: &; // #{$block-name}__element
+
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 11px;
+  max-width: 466px;
+  padding: 12px;
+  border: 1px solid #efefef;
+  border-radius: 14px;
+
+  @media screen and (min-width: breakpoints.$screen-d) {
+    flex-direction: column;
+    border-radius: 18px;
+  }
+
+  &--mb {
+    margin-bottom: 98px;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    display: grid;
+    gap: 4px;
+    align-content: start;
+  }
+
+  &__title {
+    @include text-styles.text-small;
+    @include brand-text.brand-text;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 125%;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      font-size: 18px;
+    }
+  }
+
+  &__descr {
+    font-size: 12px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      font-size: 15px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      font-size: 14px;
+    }
+  }
+
+  &__image {
+    width: 112px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    aspect-ratio: 1 / 1;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      width: 119px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      width: auto;
+    }
+  }
+
+  &__sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    gap: 14px;
+    align-items: end;
+    width: 100%;
+    padding-left: 30px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      padding-left: 60px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      left: 50%;
+      width: 380px;
+      padding-left: 0;
+    }
+
+    #{$block-name}__descr {
+      width: 180px;
+      margin: 20px 0 16px;
+      color: var(--front-secondary);
+
+      @media screen and (min-width: breakpoints.$screen-t) {
+        width: 230px;
+        margin: 10px 0;
+      }
+
+      @media screen and (min-width: breakpoints.$screen-d) {
+        width: 230px;
+        margin: 20px 0 24px;
+      }
+    }
+  }
+
+  &__subimg {
+    @media screen and (min-width: breakpoints.$screen-d) {
+      width: 172px;
+    }
+  }
+}

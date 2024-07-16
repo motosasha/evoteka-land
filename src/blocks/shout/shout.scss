@@ -1,0 +1,51 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/brand-text";
+@use "../../scss/mixins/text-styles";
+
+.shout {
+  $block-name: &; // #{$block-name}__element
+
+  display: flex;
+  justify-content: center;
+
+  &__inner {
+    display: grid;
+    gap: 24px;
+    justify-items: center;
+    width: 340px;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      width: 480px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      gap: 34px;
+      width: 700px;
+    }
+  }
+
+  &__title {
+    @include text-styles.mobile-heading-1;
+    @include brand-text.brand-text;
+
+    margin: 0;
+    text-align: center;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+    	@include text-styles.heading-2;
+    }
+
+    span {
+      color: var(--red);
+      -webkit-text-fill-color: var(--red);
+    }
+  }
+
+  &__button {
+    width: calc(100% - 32px);
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      width: 343px;
+    }
+  }
+}

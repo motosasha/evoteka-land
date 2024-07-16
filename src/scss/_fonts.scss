@@ -1,0 +1,5 @@
+@use "mixins/font-face";
+@include font-face.ff("Onest", "Onest-Regular");
+@include font-face.ff("Onest", "Onest-Medium", 500);
+@include font-face.ff("Onest", "Onest-SemiBold", 600);
+@include font-face.ff("Onest", "Onest-Bold", 700);

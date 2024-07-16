@@ -1,0 +1,64 @@
+//- Все примеси в этом файле должны начинаться c имени блока (popup)
+//- Упоминание имени блока в классах обязательно, без этого он не попадёт
+//- в сборку
+
+mixin popup(data, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +popup("Текст", "some-mod")
+
+  -
+    // список модификаторов
+    var allMods = "";
+    if(typeof(mods) !== "undefined" && mods) {
+      var modsList = mods.split(",");
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + " popup--" + modsList[i].trim();
+      }
+    }
+
+  .hystmodal#popup(class=allMods, aria-hidden="true")&attributes(attributes)
+    .hystmodal__wrap
+      .hystmodal__window.popup(role="dialog", aria-modal="true")
+        .popup__inner
+          button.hystmodal__close.popup__close(data-hystclose="", title="")
+            svg.popup__icon
+              use(href="img/svgSprite.svg#icon__cross")
+          .popup__form
+            header.popup__header
+              h2.popup__heading Заполните форму<br>и мы вам перезвоним
+            form.form#feedback-form(name="feedback-form")
+              .form__grid
+                +field("text", "", "Введите имя", "", "", "feedback-name")(required)
+                +field("phone", "", "Телефон", "", "", "feedback-phone")(required)
+                +field("email", "", "Email", "", "", "feedback-email")(required)
+                button.button.button--primary.form__submit(disabled)
+                  .button__title Отправить
+              .form__small Нажимая кнопку «Отправить» вы соглашаетесь с #[a.link(href="#") правилами пользовательского соглашения] и #[a.link(href="#") политикой конфиденциальности]
+            .popup__block
+              .popup__block-title Или напишите<br>нам напрямую
+              .popup__socials
+                a.popup__social-link(href="#", target="_blank")
+                  svg.popup__social-icon
+                    use(href= path.icon + "icon__socials--wa")
+                a.popup__social-link(href="#", target="_blank")
+                  svg.popup__social-icon
+                    use(href= path.icon + "icon__socials--tg")
+
+mixin popup-thanks(data)
+  .hystmodal#popup-thanks(aria-hidden="true")
+    .hystmodal__wrap
+      .hystmodal__window.popup.popup--thanks(role="dialog", aria-modal="true")
+        .popup__inner
+          button.hystmodal__close.popup__close(data-hystclose="", title="")
+            svg.popup__icon
+              use(href="img/svgSprite.svg#icon__cross")
+          .popup__center
+            header.popup__header
+              h2.popup__heading Спасибо за заявку
+              p.popup__descr Мы свяжемся с вами в ближайшее время
+            button.button.button--primary(data-hystclose="")
+              .button__title Закрыть

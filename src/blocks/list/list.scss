@@ -1,0 +1,58 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/brand-text";
+@use "../../scss/mixins/list-reset";
+@use "../../scss/mixins/text-styles";
+
+.list {
+  $block-name: &; // #{$block-name}__element
+
+  display: grid;
+
+  @media screen and (min-width: breakpoints.$screen-t) {
+    &--pr {
+      padding-right: 25%;
+    }
+  }
+
+  &--cols {
+    gap: 18px;
+
+    @media screen and (min-width: breakpoints.$screen-ti) {
+    	grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+  }
+
+  &__ul {
+    @include list-reset.list-reset;
+
+    display: grid;
+    gap: 18px;
+  }
+
+  &__li {
+    display: grid;
+    gap: 8px;
+  }
+
+  &__title {
+    @include brand-text.brand-text;
+    @include text-styles.mobile-heading-2;
+
+    margin: 0;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+    	@include text-styles.heading-3;
+    }
+  }
+
+  &__descr {
+    @include text-styles.mobile-text-1;
+
+    margin: 0;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      min-height: 38px;
+    }
+  }
+}

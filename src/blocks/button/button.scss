@@ -1,0 +1,68 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/flexbox";
+@use "../../scss/mixins/text-styles";
+
+.button {
+  $block-name: &; // #{$block-name}__element
+
+  @include flexbox.flex-center;
+  @include text-styles.mobile-text-1(500);
+
+  gap: 10px;
+  padding: 16px;
+  color: var(--front-inverted);
+  text-decoration: none;
+  border: none;
+  border-radius: 16px;
+  outline: none;
+  box-shadow: var(--button-shadow);
+  cursor: pointer;
+  transition: all var(--transition-default);
+  appearance: none;
+
+  @media screen and (min-width: breakpoints.$screen-ti) {
+    @include text-styles.text-big
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      scale: 1.0125;
+    }
+
+    &:active {
+      scale: 0.975;
+    }
+  }
+
+  &--primary {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    border: 1px solid transparent;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      max-width: 254px;
+    }
+
+    &[disabled],
+    &#{$block-name}--disabled {
+      color: var(--front-secondary);
+      background:
+        linear-gradient(white, white) padding-box,
+        var(--front-secondary) border-box;
+      box-shadow: none;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+  }
+
+  &__title {
+    display: block;
+  }
+
+  &__icon {
+    width: 25px;
+    height: 25px;
+  }
+}

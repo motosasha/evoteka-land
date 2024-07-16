@@ -1,0 +1,33 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/text-styles";
+
+.form {
+  $block-name: &; // #{$block-name}__element
+
+  &__grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  &__small {
+    @include text-styles.text-small;
+
+    margin-top: 16px;
+    color: var(--front-secondary);
+
+    a {
+      color: var(--front-primary);
+      transition: color var(--transition-default);
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--link-hover-color);
+        }
+
+        &:active {
+          color: var(--link-active-color);
+        }
+      }
+    }
+  }
+}

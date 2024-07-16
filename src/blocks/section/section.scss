@@ -1,0 +1,37 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/brand-text";
+@use "../../scss/mixins/text-styles";
+
+.section {
+  $block-name: &; // #{$block-name}__element
+
+  padding: 16px;
+  border-radius: 24px;
+  scroll-margin-top: calc(var(--header-height) + 20px);
+
+  @media screen and (min-width: breakpoints.$screen-t) {
+    padding: 24px;
+  }
+
+  @media screen and (min-width: breakpoints.$screen-d) {
+    padding: 34px;
+  }
+
+  &--white {
+    background-color: var(--back-secondary);
+  }
+
+  &__title {
+    @include text-styles.mobile-heading-1-1;
+
+    margin: 0 0 24px;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+    	@include text-styles.heading-2
+    }
+
+    span {
+      @include brand-text.brand-text;
+    }
+  }
+}

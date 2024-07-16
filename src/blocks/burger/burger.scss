@@ -1,0 +1,16 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/text-styles";
+
+.burger {
+  $block-name: &; // #{$block-name}__element
+
+  display: grid;
+  gap: 6px;
+
+  &__line {
+    width: 100%;
+    height: 5px;
+    background: var(--brand-gradient);
+    border-radius: 15px;
+  }
+}

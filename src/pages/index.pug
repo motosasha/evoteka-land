@@ -1,0 +1,411 @@
+extends ../templates/template__default.pug
+
+block variables
+  - isMainPage = false
+  - pageTitle = "Start page"
+  - metaDescription = "description"
+  - metaKeywords = "keywords"
+
+block content
+  .container
+    section.hero
+      .hero__inner
+        img.hero__img(src= path.img + "auto-logo.svg", alt="")
+        .hero__info
+          h1.hero__title Увеличение продаж за счет роста положительных отзывов и рейтинга компании #[span без накруток и ботов]
+          a.button.button--primary.hero__button(data-hystmodal="#popup") Узнать подробнее
+      picture.hero__bg
+        source(srcset= path.img + "hero-bg--d.jpg", media="(min-width: 1280px)")
+        source(srcset= path.img + "hero-bg--t.jpg", media="(min-width: 576px)")
+        img(src= path.img + "hero-bg--m.jpg", alt="")
+
+    section.section.section--white.section-imaged
+      .section__inner.section-imaged__inner
+        .section-imaged__info
+          h2.section__title Как рейтинги и отзывы влияют на ваш бизнес
+          .list.list--pr
+            ul.list__ul
+              li.list__li
+                h3.list__title 60% покупателей
+                p.list__descr не открывают карточку компании, если рейтинг ниже 3 звезд
+              li.list__li
+                h3.list__title 50% покупателей
+                p.list__descr не рассматривают к посещению компании без отзывов
+              li.list__li
+                h3.list__title 22% покупателей
+                p.list__descr не обращаются в компанию, если преобладают негативные отзывы
+        img.section-imaged__image.section-imaged__image--how(src= path.img + "how.jpg", alt="")
+
+    section.shout
+      .shout__inner
+        h2.shout__title #[span Более 70%] покупателей изучают отзывы о продукте или услуге перед посещением!
+
+    section.section.section--white.section-tiles
+      .section__inner.section-tiles__inner
+        h2.section__title Как рейтинги и отзывы влияют на ваш бизнес
+        .section-tiles__row
+          .tile-center
+            .tile-center__info
+              .tile-center__title На 22% покупателей
+              .tile-center__descr становится больше при увеличении рейтинга даже на 0,5 пункта
+            img.tile-center__image(src= path.img + "star.jpg", alt="")
+          .tile-center
+            .tile-center__info
+              .tile-center__title В 10 раз больше
+              .tile-center__descr трафика при рейтинге 4.0 и больше по сравнению с конкурентами
+            img.tile-center__image(src= path.img + "stars.jpg", alt="")
+          .tile-center
+            .tile-center__info
+              .tile-center__title 84% покупателей
+              .tile-center__descr доверяют отзывам в интернете не меньше, чем своим знакомым
+            img.tile-center__image(src= path.img + "graph.jpg", alt="")
+
+    section.section.section--white.section-tiles
+      .section__inner.section-tiles__inner
+        h2.section__title Как покупатели выбирают #[span товары/услуги]
+        .section-tiles__row
+          .tile-post
+            .tile-post__info
+              .tile-post__descr Положительные письменные отзывы #[strong отметили #[span 75%] опрашиваемых]
+            img.tile-post__image(src= path.img + "good-01.jpg", alt="")
+          .tile-post
+            .tile-post__info
+              .tile-post__descr Оценка с высоким звездным рейтингом #[strong отметили #[span 58%] опрашиваемых]
+            img.tile-post__image(src= path.img + "good-02.jpg", alt="")
+          .tile-post
+            .tile-post__info
+              .tile-post__descr Компания отвечает на комментарии покупателей #[strong отметили #[span 55%] опрашиваемых]
+            img.tile-post__image(src= path.img + "good-03.jpg", alt="")
+
+    section.section.section--white.section-tiles
+      .section__inner.section-tiles__inner
+        h2.section__title Как покупатели выбирают #[span компанию]
+        .section-tiles__row
+          .tile-post
+            .tile-post__info
+              .tile-post__descr Общий звездный рейтинг компании #[strong #[span 85%] опрашиваемых сказали, что это «важно» или «очень важно»]
+            img.tile-post__image(src= path.img + "company-01.jpg", alt="")
+          .tile-post
+            .tile-post__info
+              .tile-post__descr Более высокий звездный рейтинг, чем у конкурентов #[strong Отметили #[span 76%] опрашиваемых]
+            img.tile-post__image(src= path.img + "company-02.jpg", alt="")
+          .tile-post
+            .tile-post__info
+              .tile-post__descr «Свежесть» последних оставленных отзывов #[strong отметили #[span 55%] опрашиваемых]
+            img.tile-post__image(src= path.img + "company-03.jpg", alt="")
+
+    section#forWhom.section.section--white.section-tiles
+      .section__inner.section-tiles__inner
+        h2.section__title #[span Кому подойдет?]
+        .section-tiles__row.section-tiles__row--cols
+          .tile-color.tile-color--orange
+            img.tile-color__image(src= path.img + "fits-01.jpg", alt="")
+            .tile-color__descr Банки и финансовые организации
+          .tile-color.tile-color--violet
+            img.tile-color__image(src= path.img + "fits-02.jpg", alt="")
+            .tile-color__descr Общественное питание: рестораны, кофейни, пекарни
+          .tile-color.tile-color--blue
+            img.tile-color__image(src= path.img + "fits-03.jpg", alt="")
+            .tile-color__descr Салоны красоты, барбершопы, парикмахерские
+          .tile-color.tile-color--green
+            img.tile-color__image(src= path.img + "fits-04.jpg", alt="")
+            .tile-color__descr Отели и хостелы
+          .tile-color.tile-color--red
+            img.tile-color__image(src= path.img + "fits-05.jpg", alt="")
+            .tile-color__descr Автосервисы, АЗС, СТО
+          .tile-color.tile-color--sky
+            img.tile-color__image(src= path.img + "fits-06.jpg", alt="")
+            .tile-color__descr Магазины розничной торговли
+
+    section.shout
+      .shout__inner
+        h2.shout__title Увеличение продаж через повышение рейтингов розничных точек на площадках с отзывами
+        a.button.button--primary.shout__button(data-hystmodal="#popup") Связаться с нами
+
+    section#about.section.section--white.section-imaged
+      .section__inner.section-imaged__inner.section-imaged__inner--reversed
+        .section-imaged__info
+          h2.section__title Готовая система для мотивации покупателей
+          p.section-imaged__descr #[span “АвтоОтзыв”] позволяет управлять рейтингами вашего бизнеса, повышать трафик и увеличивать продажи.
+          .list.list--cols
+            ul.list__ul
+              li.list__li
+                h3.list__title Готовый
+                p.list__descr автоматизированный процесс без сотрудников
+              li.list__li
+                h3.list__title Мотивирует
+                p.list__descr клиента оставлять положительные отзывы
+              li.list__li
+                h3.list__title Аналитика
+                p.list__descr на базе машинного обучения
+            ul.list__ul
+              li.list__li
+                h3.list__title Перенаправляет
+                p.list__descr негатив на службу качества
+              li.list__li
+                h3.list__title Автоматизированные
+                p.list__descr выплаты и отчетности
+              li.list__li
+                h3.list__title Статистика
+                p.list__descr хранится и формируется в отчеты
+        img.section-imaged__image(src= path.img + "system.jpg", alt="")
+
+    section#method.section.section--white.section-tiles
+      .section__inner.section-tiles__inner
+        h2.section__title Как это работает?
+        .section-tiles__row.section-tiles__row--high
+          .tile-high
+            img.tile-high__image(src= path.img + "works-01.jpg", alt="")
+            .tile-high__info
+              .tile-high__title Шаг 1
+              .tile-high__descr Клиент переходит через маркетинговый материал или получает уникальную ссылку для оценки и создания отзыва через рассылку.
+          .tile-high
+            img.tile-high__image(src= path.img + "works-02.jpg", alt="")
+            .tile-high__info
+              .tile-high__title Шаг 2
+              .tile-high__descr Клиент оставляет положительный отзыв на любой площадке и отправляет сообщение с отзывом для подтверждения.
+          .tile-high.tile-high--mb
+            img.tile-high__image(src= path.img + "works-03.jpg", alt="")
+            .tile-high__info
+              .tile-high__title Шаг 3
+              .tile-high__descr Система проверяет отзыв. Распознает положительную и отрицательную тональность. Подтверждает, что отзыв полезный.
+            .tile-high__sub
+              img.tile-high__subimg(src= path.img + "sub-arrow.svg", alt="")
+              .tile-high__descr Негативные отзывы система направляет сотрудникам для отработки негатива.
+          .tile-high
+            img.tile-high__image(src= path.img + "works-04.jpg", alt="")
+            .tile-high__info
+              .tile-high__title Шаг 4
+              .tile-high__descr Робот автоматически поощряет клиента скидкой или финансово и благодарит в сообщении.
+          .tile-high
+            img.tile-high__image(src= path.img + "works-05.jpg", alt="")
+            .tile-high__info
+              .tile-high__title Шаг 5
+              .tile-high__descr Клиент оставляет положительный отзыв на любой площадке и отправляет сообщение с отзывом для подтверждения.
+          .tile-high
+            img.tile-high__image(src= path.img + "works-06.jpg", alt="")
+            .tile-high__info
+              .tile-high__title Шаг 6
+              .tile-high__descr Система хранит и обрабатывает статистические данные по всем точкам, клиентам и отзывам. И формирует соответствующие отчеты для анализа динамики изменений.
+
+    section.section.section--white.section-tiles
+      .section__inner.section-tiles__inner
+        h2.section__title Чем мы отличаемся от остальных сервисов?
+        .tile
+          .tile__title Остальные сервисы
+          ul.tile__list
+            li.tile__li Отзывы размещаются специальными ботами с непроверенных IP-адресов с помощью антидетект бразуеров
+            li.tile__li Пишут тексты с помощью сторонних людей, которые зарабатывают на написании отзывов
+            li.tile__li Отзывы такими методами размещаются крайне медленно (есть ограничение на прохождение модерации)
+        .tile
+          .tile__title Риски для вас
+          .tile__descr Площадки отзовики блокируют профиль вашей компании и аккаунт попадает в бан с удалением всех отзывов
+        .tile
+          .tile__title Как работает наш сервис
+          ul.tile__list
+            li.tile__li Вы размещаете макет с QR кодом, который ведет на сайт -одностраничник, у себя в точках или на официальном сайте - мотивируете клиента оставить отзыв за отдельную плату (сумму вы устанавливаете сами)
+            li.tile__li Ваши настоящие клиенты мотивируются оставить о вас хороший отзыв
+            li.tile__li Бот автоматически проверяет отзыв и поощряет клиента (минимизация ручной работы)
+        .tile
+          .tile__title Плюсы для вас
+          ul.tile__list
+            li.tile__li Спокойное прохождение модерации отзывов без удалений и банов аккаунта.
+            li.tile__li Нет ограничений по количеству отзывов.
+
+    section.section.section--white.section-imaged
+      .section__inner.section-imaged__inner
+        .section-imaged__info
+          h2.section__title Преимущества
+          .list.list--cols
+            ul.list__ul
+              li.list__li
+                h3.list__title Юридическая конструкция
+                p.list__descr правовые и законодательное урегулирование мы берем на себя
+              li.list__li
+                h3.list__title ИИ
+                p.list__descr для анализа отзыва
+              li.list__li
+                h3.list__title Автоматизированные
+                p.list__descr отчеты для бухгалтерии
+              li.list__li
+                h3.list__title Маркетинговые материалы
+            ul.list__ul
+              li.list__li
+                h3.list__title Система мотивации клиентов
+                p.list__descr пополнение карты/телефона, скидка, бонусные баллы в вашей системе лояльности
+              li.list__li
+                h3.list__title Чат-боты
+                p.list__descr для взаимодействия с клиентами
+              li.list__li
+                h3.list__title Онлайн кабинет
+                p.list__descr для аналитики изменения рейтингов в разрезе площадок
+        img.section-imaged__image(src= path.img + "advantages.jpg", alt="")
+
+    section.section.section--white.section-tiles
+      .section__inner.section-tiles__inner
+        h2.section__title Что вы получаете?
+        ol.section-tiles__list
+          li.section-tiles__item
+            .tile-point
+              .tile-point__descr Более высокий звездный рейтинг, чем у конкурентов
+              img.tile-point__image(src= path.img + "what-01.jpg", alt="")
+          li.section-tiles__item
+            .tile-point
+              .tile-point__descr Отстраивание компании от конкурентов
+              img.tile-point__image(src= path.img + "what-02.jpg", alt="")
+          li.section-tiles__item
+            .tile-point
+              .tile-point__descr Повышение позиций в поисковой выдаче
+              img.tile-point__image(src= path.img + "what-03.jpg", alt="")
+          li.section-tiles__item
+            .tile-point
+              .tile-point__descr Оперативная информация как точка роста для бизнеса
+              img.tile-point__image(src= path.img + "what-04.jpg", alt="")
+          li.section-tiles__item
+            .tile-point
+              .tile-point__descr Уменьшение негатива в публичном пространстве
+              img.tile-point__image(src= path.img + "what-05.jpg", alt="")
+          li.section-tiles__item
+            .tile-point
+              .tile-point__descr Повышение конверсии в продажу
+              img.tile-point__image(src= path.img + "what-06.jpg", alt="")
+          li.section-tiles__item
+            .tile-point
+              .tile-point__descr Больше отзывов — больше продаж
+              img.tile-point__image(src= path.img + "what-07.jpg", alt="")
+
+
+    section#rates.section.section--white.section-tiles
+      .section__inner.section-tiles__inner
+        h2.section__title Лицензия и подключение системы — #[span 150 000 руб (единарозово)]
+        .section-tiles__descr Ежемесячные тарифы
+        .section-tiles__row
+          .tile-map
+            .tile-map__info
+              .tile-map__title 1-10 точек
+              .tile-map__descr 15 000 руб./ мес. / точка
+            img.tile-map__image(src= path.img + "map-01.jpg", alt="")
+          .tile-map
+            .tile-map__info
+              .tile-map__title 10-50 точек
+              .tile-map__descr 5 000 руб./ мес./ точка
+            img.tile-map__image(src= path.img + "map-02.jpg", alt="")
+          .tile-map
+            .tile-map__info
+              .tile-map__title 100-500 точек
+              .tile-map__descr Рассчитывается по запросу
+            img.tile-map__image(src= path.img + "map-03.jpg", alt="")
+        a.button.button--primary.section-tiles__button(data-hystmodal="#popup") Связаться с нами
+
+    section.section.section--white.already
+      .section__inner.already__inner
+        .already__header
+          h2.section__title Уже используют #[span АвтоОтзыв]
+          p.already__descr Федеральная сеть шиномонтажных мастерских
+          .already__label
+            svg.already__icon
+              use(href= path.icon + "icon__wheel")
+            | 328 точек по РФ
+        .already__table
+          table
+            thead
+              tr
+                th Оценка
+                th До<br> начала
+                th После<br> начала
+            tbody
+              tr
+                td
+                  .already__stars
+                    img(src= path.img + "icon__star.svg", alt="")
+                td 1213
+                td 432
+              tr
+                td
+                  .already__stars
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                td 2018
+                td 71
+              tr
+                td
+                  .already__stars
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                td 269
+                td 100
+              tr
+                td
+                  .already__stars
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                td 277
+                td 102
+              tr
+                td
+                  .already__stars
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                    img(src= path.img + "icon__star.svg", alt="")
+                td 1595
+                td 6510
+        .already__footer
+          p.already__subtitle Средний рейтинг по точкам вырос с #[span 2,5] до #[span 4,5]
+          p.already__descr Срок: 4 месяца
+          p.already__descr Бюджет: 1 млн/₽
+          img.already__yandex(src= path.img + "yandex.png", alt="Yandex. Хорошее место. Выбор пользователей Яндекса — 2022")
+          img.already__2gis(src= path.img + "2gis.png", alt="Здесь хорошо. 2GIS")
+
+    section.section.section--white.contacts
+      .section__inner.contacts__inner
+        .contacts__grid
+          .contacts__col
+            h2.section__title
+              span Контакты
+            form#contacts-form.form(name="contacts-form")
+              .form__grid
+                +field("text", "", "Введите имя", "", "", "contacts-name")(required)
+                +field("text", "", "Email или телефон", "", "", "contacts-contact")(required)
+                +select(["Выберите должность", "Директор в компании", "Маркетолог", "Продукт менеджер", "Менеджер по продажам", "Фрилансер", "Другое"], "", "contacts-place")
+                +select(
+                  ["Выберите категорию бизнеса",
+                    "Недвижимость",
+                    "Туризм",
+                    "Финансы",
+                    "Спорт и активный отдых",
+                    "Кафе и рестораны",
+                    "Дети",
+                    "Бытовая техника и электроника",
+                    "Авто",
+                    "Красота и забота о себе",
+                    "Досуг и развлечения",
+                    "Образование",
+                    "Мода и стиль",
+                    "Товары и услуги для бизнеса",
+                    "Здоровье",
+                    "Продукты и товары",
+                    "Дом и ремонт"], "", "contacts-category")
+                button.button.button--primary.form__submit(disabled)
+                  .button__title Отправить
+              .form__small Нажимая кнопку «Отправить» вы соглашаетесь с #[a.link(href="#") правилами пользовательского соглашения] и #[a.link(href="#") политикой конфиденциальности]
+          .contacts__col
+            .contacts__map
+              script(type="text/javascript", charset="utf-8", async="", src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A35041b1ea8965b3362130e776db6cd14db687c09aaa1e848b2596fb46ceb95b4&width=100%25&height=100%&lang=ru_RU&scroll=false")
+        .contacts__row
+          .contacts__item
+            .contacts__label Телефон:
+            a.contacts__link(href="tel:89872607722") +7 (987) 260-77-22
+          .contacts__item
+            .contacts__label Почта:
+            a.contacts__link(href="mailto:info@evoteka.ru") info@evoteka.ru
+          .contacts__item
+            .contacts__label Адрес:
+            .contacts__descr Респ. Татарстан, г. Казань, ул. Спартаковская 2, «IT-Park имени Башира Рамеева», 2 этаж, оф. 210
+
+    +popup()
+    +popup-thanks()
