@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=3, minimum-scale=0.1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="https://motosasha.github.io/evoteka-land/index.html">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="google" content="notranslate">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" sizes="32x32" href="./img/favicon/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="./img/favicon/favicon.svg">
+    <link rel="apple-touch-icon" href="./img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="./img/favicon/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="og:title">
+    <meta property="og:image" content="./img/favicon/apple-touch-icon-180x180.png">
+    <meta property="og:description" content="og:description">
+    <meta property="vk:image" content="./img/favicon/logo-vk.png">
+    <title>Start page</title>
+    <meta name="description" content="description">
+    <meta name="keywords" content="keywords">
+    <link rel="stylesheet" href="./css/style.css"><script>// Remove the "no-js" class from the html, add the "js" class: from the style level we know whether JS works
+document.documentElement.className = document.documentElement.className.replace("no-js", "js");
+
+// touch/no-touch
+"ontouchstart" in window ? cth("touch") : cth("no-touch");
+
+// Browser
+cth(getBrowser());
+
+// OS
+if (~navigator.appVersion.indexOf("Win")) cth("windows");
+if (~navigator.appVersion.indexOf("Mac")) cth("osx");
+if (~["iPhone", "iPod"].indexOf(navigator.platform)) cth("ios");
+if (~["iPad"].indexOf(navigator.platform)) cth("ipados");
+if (~navigator.appVersion.indexOf("Linux")) cth("linux");
+
+// Adding 1vh (use: height: 100vh; height: calc(var(--vh, 1vh) * 100);) to fix 100vh on mobile phones
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+window.addEventListener("resize", () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+});
+
+function cth(c) {
+  document.documentElement.classList.add(c);
+}
+
+function getBrowser() {
+  let userAgent = navigator.userAgent;
+  let browser = "Unknown";
+
+  // Detect Chrome
+  if (/Chrome/.test(userAgent) && !/Chromium/.test(userAgent)) {
+    browser = "chrome";
+  }
+  // Detect Chromium-based Edge
+  else if (/Edg/.test(userAgent)) {
+    browser = "edge";
+  }
+  // Detect Firefox
+  else if (/Firefox/.test(userAgent)) {
+    browser = "firefox";
+  }
+  // Detect Safari
+  else if (/Safari/.test(userAgent)) {
+    browser = "safari";
+  }
+  // Detect Internet Explorer
+  else if (/Trident/.test(userAgent)) {
+    browser = "ie";
+  }
+  return browser;
+}
+</script>
+  </head>
+  <body><noscript>У вас отключен JavaScript. Это пугает.</noscript>
+    <div class="page">
+      <div class="page__header">
+        <header class="header">
+          <div class="header__inner">
+            <div class="header__logo"><svg class="logo">
+                <use href="./img/svgSprite.svg#logo__evoteka"></use>
+              </svg></div>
+            <div class="header__nav-wrap">
+              <nav class="header__nav"><a class="header__nav-item" href="#about">О сервисе</a><a class="header__nav-item" href="#forWhom">Кому подойдет?</a><a class="header__nav-item" href="#method">Принцип работы</a><a class="header__nav-item" href="#rates">Тарифы</a></nav>
+            </div>
+            <div class="header__actions">
+              <div class="header__row"><a class="header__phone" href="tel:88000000000">8-800-000-00-00</a>
+                <div class="header__socials"><a class="header__social-link" href="#" target="_blank"><svg class="header__social-icon">
+                      <use href="./img/svgSprite.svg#icon__socials--wa"></use>
+                    </svg></a><a class="header__social-link" href="#" target="_blank"><svg class="header__social-icon">
+                      <use href="./img/svgSprite.svg#icon__socials--tg"></use>
+                    </svg></a></div>
+              </div>
+            </div><button class="header__menu" data-menu-trigger="data-menu-trigger">
+              <div class="burger">
+                <div class="burger__line"></div>
+                <div class="burger__line"></div>
+                <div class="burger__line"></div>
+              </div>
+            </button>
+          </div>
+          <div class="header__drop">
+            <nav class="header__nav"><a class="header__nav-item" href="#about">О сервисе</a><a class="header__nav-item" href="#forWhom">Кому подойдет?</a><a class="header__nav-item" href="#method">Принцип работы</a><a class="header__nav-item" href="#rates">Тарифы</a></nav>
+            <div class="header__row"><a class="header__phone" href="tel:88000000000">8-800-000-00-00</a>
+              <div class="header__socials"><a class="header__social-link" href="#" target="_blank"><svg class="header__social-icon">
+                    <use href="./img/svgSprite.svg#icon__socials--wa"></use>
+                  </svg></a><a class="header__social-link" href="#" target="_blank"><svg class="header__social-icon">
+                    <use href="./img/svgSprite.svg#icon__socials--tg"></use>
+                  </svg></a></div>
+            </div>
+          </div>
+        </header>
+      </div>
+      <div class="page__main">
+        <div class="container">
+          <section class="hero">
+            <div class="hero__inner"><img class="hero__img" src="./img/auto-logo.svg" alt="">
+              <div class="hero__info">
+                <h1 class="hero__title">Увеличение продаж за счет роста положительных отзывов и рейтинга компании <span>без накруток и ботов</span></h1><a class="button button--primary hero__button" data-hystmodal="#popup">Узнать подробнее</a>
+              </div>
+            </div>
+            <picture class="hero__bg">
+              <source srcset="./img/hero-bg--d.jpg" media="(min-width: 1280px)">
+              <source srcset="./img/hero-bg--t.jpg" media="(min-width: 576px)"><img src="./img/hero-bg--m.jpg" alt="">
+            </picture>
+          </section>
+          <section class="section section--white section-imaged">
+            <div class="section__inner section-imaged__inner">
+              <div class="section-imaged__info">
+                <h2 class="section__title">Как рейтинги и отзывы влияют на ваш бизнес</h2>
+                <div class="list list--pr">
+                  <ul class="list__ul">
+                    <li class="list__li">
+                      <h3 class="list__title">60% покупателей</h3>
+                      <p class="list__descr">не открывают карточку компании, если рейтинг ниже 3 звезд</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">50% покупателей</h3>
+                      <p class="list__descr">не рассматривают к посещению компании без отзывов</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">22% покупателей</h3>
+                      <p class="list__descr">не обращаются в компанию, если преобладают негативные отзывы</p>
+                    </li>
+                  </ul>
+                </div>
+              </div><img class="section-imaged__image section-imaged__image--how" src="./img/how.jpg" alt="">
+            </div>
+          </section>
+          <section class="shout">
+            <div class="shout__inner">
+              <h2 class="shout__title"><span>Более 70%</span> покупателей изучают отзывы о продукте или услуге перед посещением!</h2>
+            </div>
+          </section>
+          <section class="section section--white section-tiles">
+            <div class="section__inner section-tiles__inner">
+              <h2 class="section__title">Как рейтинги и отзывы влияют на ваш бизнес</h2>
+              <div class="section-tiles__row">
+                <div class="tile-center">
+                  <div class="tile-center__info">
+                    <div class="tile-center__title">На 22% покупателей</div>
+                    <div class="tile-center__descr">становится больше при увеличении рейтинга даже на 0,5 пункта</div>
+                  </div><img class="tile-center__image" src="./img/star.jpg" alt="">
+                </div>
+                <div class="tile-center">
+                  <div class="tile-center__info">
+                    <div class="tile-center__title">В 10 раз больше</div>
+                    <div class="tile-center__descr">трафика при рейтинге 4.0 и больше по сравнению с конкурентами</div>
+                  </div><img class="tile-center__image" src="./img/stars.jpg" alt="">
+                </div>
+                <div class="tile-center">
+                  <div class="tile-center__info">
+                    <div class="tile-center__title">84% покупателей</div>
+                    <div class="tile-center__descr">доверяют отзывам в интернете не меньше, чем своим знакомым</div>
+                  </div><img class="tile-center__image" src="./img/graph.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section section--white section-tiles">
+            <div class="section__inner section-tiles__inner">
+              <h2 class="section__title">Как покупатели выбирают <span>товары/услуги</span></h2>
+              <div class="section-tiles__row">
+                <div class="tile-post">
+                  <div class="tile-post__info">
+                    <div class="tile-post__descr">Положительные письменные отзывы <strong>отметили <span>75%</span> опрашиваемых</strong></div>
+                  </div><img class="tile-post__image" src="./img/good-01.jpg" alt="">
+                </div>
+                <div class="tile-post">
+                  <div class="tile-post__info">
+                    <div class="tile-post__descr">Оценка с высоким звездным рейтингом <strong>отметили <span>58%</span> опрашиваемых</strong></div>
+                  </div><img class="tile-post__image" src="./img/good-02.jpg" alt="">
+                </div>
+                <div class="tile-post">
+                  <div class="tile-post__info">
+                    <div class="tile-post__descr">Компания отвечает на комментарии покупателей <strong>отметили <span>55%</span> опрашиваемых</strong></div>
+                  </div><img class="tile-post__image" src="./img/good-03.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section section--white section-tiles">
+            <div class="section__inner section-tiles__inner">
+              <h2 class="section__title">Как покупатели выбирают <span>компанию</span></h2>
+              <div class="section-tiles__row">
+                <div class="tile-post">
+                  <div class="tile-post__info">
+                    <div class="tile-post__descr">Общий звездный рейтинг компании <strong><span>85%</span> опрашиваемых сказали, что это «важно» или «очень важно»</strong></div>
+                  </div><img class="tile-post__image" src="./img/company-01.jpg" alt="">
+                </div>
+                <div class="tile-post">
+                  <div class="tile-post__info">
+                    <div class="tile-post__descr">Более высокий звездный рейтинг, чем у конкурентов <strong>Отметили <span>76%</span> опрашиваемых</strong></div>
+                  </div><img class="tile-post__image" src="./img/company-02.jpg" alt="">
+                </div>
+                <div class="tile-post">
+                  <div class="tile-post__info">
+                    <div class="tile-post__descr">«Свежесть» последних оставленных отзывов <strong>отметили <span>55%</span> опрашиваемых</strong></div>
+                  </div><img class="tile-post__image" src="./img/company-03.jpg" alt="">
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section section--white section-tiles" id="forWhom">
+            <div class="section__inner section-tiles__inner">
+              <h2 class="section__title"><span>Кому подойдет?</span></h2>
+              <div class="section-tiles__row section-tiles__row--cols">
+                <div class="tile-color tile-color--orange"><img class="tile-color__image" src="./img/fits-01.jpg" alt="">
+                  <div class="tile-color__descr">Банки и финансовые организации</div>
+                </div>
+                <div class="tile-color tile-color--violet"><img class="tile-color__image" src="./img/fits-02.jpg" alt="">
+                  <div class="tile-color__descr">Общественное питание: рестораны, кофейни, пекарни</div>
+                </div>
+                <div class="tile-color tile-color--blue"><img class="tile-color__image" src="./img/fits-03.jpg" alt="">
+                  <div class="tile-color__descr">Салоны красоты, барбершопы, парикмахерские</div>
+                </div>
+                <div class="tile-color tile-color--green"><img class="tile-color__image" src="./img/fits-04.jpg" alt="">
+                  <div class="tile-color__descr">Отели и хостелы</div>
+                </div>
+                <div class="tile-color tile-color--red"><img class="tile-color__image" src="./img/fits-05.jpg" alt="">
+                  <div class="tile-color__descr">Автосервисы, АЗС, СТО</div>
+                </div>
+                <div class="tile-color tile-color--sky"><img class="tile-color__image" src="./img/fits-06.jpg" alt="">
+                  <div class="tile-color__descr">Магазины розничной торговли</div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="shout">
+            <div class="shout__inner">
+              <h2 class="shout__title">Увеличение продаж через повышение рейтингов розничных точек на площадках с отзывами</h2><a class="button button--primary shout__button" data-hystmodal="#popup">Связаться с нами</a>
+            </div>
+          </section>
+          <section class="section section--white section-imaged" id="about">
+            <div class="section__inner section-imaged__inner section-imaged__inner--reversed">
+              <div class="section-imaged__info">
+                <h2 class="section__title">Готовая система для мотивации покупателей</h2>
+                <p class="section-imaged__descr"><span>“АвтоОтзыв”</span> позволяет управлять рейтингами вашего бизнеса, повышать трафик и увеличивать продажи.</p>
+                <div class="list list--cols">
+                  <ul class="list__ul">
+                    <li class="list__li">
+                      <h3 class="list__title">Готовый</h3>
+                      <p class="list__descr">автоматизированный процесс без сотрудников</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">Мотивирует</h3>
+                      <p class="list__descr">клиента оставлять положительные отзывы</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">Аналитика</h3>
+                      <p class="list__descr">на базе машинного обучения</p>
+                    </li>
+                  </ul>
+                  <ul class="list__ul">
+                    <li class="list__li">
+                      <h3 class="list__title">Перенаправляет</h3>
+                      <p class="list__descr">негатив на службу качества</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">Автоматизированные</h3>
+                      <p class="list__descr">выплаты и отчетности</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">Статистика</h3>
+                      <p class="list__descr">хранится и формируется в отчеты</p>
+                    </li>
+                  </ul>
+                </div>
+              </div><img class="section-imaged__image" src="./img/system.jpg" alt="">
+            </div>
+          </section>
+          <section class="section section--white section-tiles" id="method">
+            <div class="section__inner section-tiles__inner">
+              <h2 class="section__title">Как это работает?</h2>
+              <div class="section-tiles__row section-tiles__row--high">
+                <div class="tile-high"><img class="tile-high__image" src="./img/works-01.jpg" alt="">
+                  <div class="tile-high__info">
+                    <div class="tile-high__title">Шаг 1</div>
+                    <div class="tile-high__descr">Клиент переходит через маркетинговый материал или получает уникальную ссылку для оценки и создания отзыва через рассылку.</div>
+                  </div>
+                </div>
+                <div class="tile-high"><img class="tile-high__image" src="./img/works-02.jpg" alt="">
+                  <div class="tile-high__info">
+                    <div class="tile-high__title">Шаг 2</div>
+                    <div class="tile-high__descr">Клиент оставляет положительный отзыв на любой площадке и отправляет сообщение с отзывом для подтверждения.</div>
+                  </div>
+                </div>
+                <div class="tile-high tile-high--mb"><img class="tile-high__image" src="./img/works-03.jpg" alt="">
+                  <div class="tile-high__info">
+                    <div class="tile-high__title">Шаг 3</div>
+                    <div class="tile-high__descr">Система проверяет отзыв. Распознает положительную и отрицательную тональность. Подтверждает, что отзыв полезный.</div>
+                  </div>
+                  <div class="tile-high__sub"><img class="tile-high__subimg" src="./img/sub-arrow.svg" alt="">
+                    <div class="tile-high__descr">Негативные отзывы система направляет сотрудникам для отработки негатива.</div>
+                  </div>
+                </div>
+                <div class="tile-high"><img class="tile-high__image" src="./img/works-04.jpg" alt="">
+                  <div class="tile-high__info">
+                    <div class="tile-high__title">Шаг 4</div>
+                    <div class="tile-high__descr">Робот автоматически поощряет клиента скидкой или финансово и благодарит в сообщении.</div>
+                  </div>
+                </div>
+                <div class="tile-high"><img class="tile-high__image" src="./img/works-05.jpg" alt="">
+                  <div class="tile-high__info">
+                    <div class="tile-high__title">Шаг 5</div>
+                    <div class="tile-high__descr">Клиент оставляет положительный отзыв на любой площадке и отправляет сообщение с отзывом для подтверждения.</div>
+                  </div>
+                </div>
+                <div class="tile-high"><img class="tile-high__image" src="./img/works-06.jpg" alt="">
+                  <div class="tile-high__info">
+                    <div class="tile-high__title">Шаг 6</div>
+                    <div class="tile-high__descr">Система хранит и обрабатывает статистические данные по всем точкам, клиентам и отзывам. И формирует соответствующие отчеты для анализа динамики изменений.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section section--white section-tiles">
+            <div class="section__inner section-tiles__inner">
+              <h2 class="section__title">Чем мы отличаемся от остальных сервисов?</h2>
+              <div class="tile">
+                <div class="tile__title">Остальные сервисы</div>
+                <ul class="tile__list">
+                  <li class="tile__li">Отзывы размещаются специальными ботами с непроверенных IP-адресов с помощью антидетект бразуеров</li>
+                  <li class="tile__li">Пишут тексты с помощью сторонних людей, которые зарабатывают на написании отзывов</li>
+                  <li class="tile__li">Отзывы такими методами размещаются крайне медленно (есть ограничение на прохождение модерации)</li>
+                </ul>
+              </div>
+              <div class="tile">
+                <div class="tile__title">Риски для вас</div>
+                <div class="tile__descr">Площадки отзовики блокируют профиль вашей компании и аккаунт попадает в бан с удалением всех отзывов</div>
+              </div>
+              <div class="tile">
+                <div class="tile__title">Как работает наш сервис</div>
+                <ul class="tile__list">
+                  <li class="tile__li">Вы размещаете макет с QR кодом, который ведет на сайт -одностраничник, у себя в точках или на официальном сайте - мотивируете клиента оставить отзыв за отдельную плату (сумму вы устанавливаете сами)</li>
+                  <li class="tile__li">Ваши настоящие клиенты мотивируются оставить о вас хороший отзыв</li>
+                  <li class="tile__li">Бот автоматически проверяет отзыв и поощряет клиента (минимизация ручной работы)</li>
+                </ul>
+              </div>
+              <div class="tile">
+                <div class="tile__title">Плюсы для вас</div>
+                <ul class="tile__list">
+                  <li class="tile__li">Спокойное прохождение модерации отзывов без удалений и банов аккаунта.</li>
+                  <li class="tile__li">Нет ограничений по количеству отзывов.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="section section--white section-imaged">
+            <div class="section__inner section-imaged__inner">
+              <div class="section-imaged__info">
+                <h2 class="section__title">Преимущества</h2>
+                <div class="list list--cols">
+                  <ul class="list__ul">
+                    <li class="list__li">
+                      <h3 class="list__title">Юридическая конструкция</h3>
+                      <p class="list__descr">правовые и законодательное урегулирование мы берем на себя</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">ИИ</h3>
+                      <p class="list__descr">для анализа отзыва</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">Автоматизированные</h3>
+                      <p class="list__descr">отчеты для бухгалтерии</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">Маркетинговые материалы</h3>
+                    </li>
+                  </ul>
+                  <ul class="list__ul">
+                    <li class="list__li">
+                      <h3 class="list__title">Система мотивации клиентов</h3>
+                      <p class="list__descr">пополнение карты/телефона, скидка, бонусные баллы в вашей системе лояльности</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">Чат-боты</h3>
+                      <p class="list__descr">для взаимодействия с клиентами</p>
+                    </li>
+                    <li class="list__li">
+                      <h3 class="list__title">Онлайн кабинет</h3>
+                      <p class="list__descr">для аналитики изменения рейтингов в разрезе площадок</p>
+                    </li>
+                  </ul>
+                </div>
+              </div><img class="section-imaged__image" src="./img/advantages.jpg" alt="">
+            </div>
+          </section>
+          <section class="section section--white section-tiles">
+            <div class="section__inner section-tiles__inner">
+              <h2 class="section__title">Что вы получаете?</h2>
+              <ol class="section-tiles__list">
+                <li class="section-tiles__item">
+                  <div class="tile-point">
+                    <div class="tile-point__descr">Более высокий звездный рейтинг, чем у конкурентов</div><img class="tile-point__image" src="./img/what-01.jpg" alt="">
+                  </div>
+                </li>
+                <li class="section-tiles__item">
+                  <div class="tile-point">
+                    <div class="tile-point__descr">Отстраивание компании от конкурентов</div><img class="tile-point__image" src="./img/what-02.jpg" alt="">
+                  </div>
+                </li>
+                <li class="section-tiles__item">
+                  <div class="tile-point">
+                    <div class="tile-point__descr">Повышение позиций в поисковой выдаче</div><img class="tile-point__image" src="./img/what-03.jpg" alt="">
+                  </div>
+                </li>
+                <li class="section-tiles__item">
+                  <div class="tile-point">
+                    <div class="tile-point__descr">Оперативная информация как точка роста для бизнеса</div><img class="tile-point__image" src="./img/what-04.jpg" alt="">
+                  </div>
+                </li>
+                <li class="section-tiles__item">
+                  <div class="tile-point">
+                    <div class="tile-point__descr">Уменьшение негатива в публичном пространстве</div><img class="tile-point__image" src="./img/what-05.jpg" alt="">
+                  </div>
+                </li>
+                <li class="section-tiles__item">
+                  <div class="tile-point">
+                    <div class="tile-point__descr">Повышение конверсии в продажу</div><img class="tile-point__image" src="./img/what-06.jpg" alt="">
+                  </div>
+                </li>
+                <li class="section-tiles__item">
+                  <div class="tile-point">
+                    <div class="tile-point__descr">Больше отзывов — больше продаж</div><img class="tile-point__image" src="./img/what-07.jpg" alt="">
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </section>
+          <section class="section section--white section-tiles" id="rates">
+            <div class="section__inner section-tiles__inner">
+              <h2 class="section__title">Лицензия и подключение системы — <span>150 000 руб (единарозово)</span></h2>
+              <div class="section-tiles__descr">Ежемесячные тарифы</div>
+              <div class="section-tiles__row">
+                <div class="tile-map">
+                  <div class="tile-map__info">
+                    <div class="tile-map__title">1-10 точек</div>
+                    <div class="tile-map__descr">15 000 руб./ мес. / точка</div>
+                  </div><img class="tile-map__image" src="./img/map-01.jpg" alt="">
+                </div>
+                <div class="tile-map">
+                  <div class="tile-map__info">
+                    <div class="tile-map__title">10-50 точек</div>
+                    <div class="tile-map__descr">5 000 руб./ мес./ точка</div>
+                  </div><img class="tile-map__image" src="./img/map-02.jpg" alt="">
+                </div>
+                <div class="tile-map">
+                  <div class="tile-map__info">
+                    <div class="tile-map__title">100-500 точек</div>
+                    <div class="tile-map__descr">Рассчитывается по запросу</div>
+                  </div><img class="tile-map__image" src="./img/map-03.jpg" alt="">
+                </div>
+              </div><a class="button button--primary section-tiles__button" data-hystmodal="#popup">Связаться с нами</a>
+            </div>
+          </section>
+          <section class="section section--white already">
+            <div class="section__inner already__inner">
+              <div class="already__header">
+                <h2 class="section__title">Уже используют <span>АвтоОтзыв</span></h2>
+                <p class="already__descr">Федеральная сеть шиномонтажных мастерских</p>
+                <div class="already__label"><svg class="already__icon">
+                    <use href="./img/svgSprite.svg#icon__wheel"></use>
+                  </svg>328 точек по РФ</div>
+              </div>
+              <div class="already__table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Оценка</th>
+                      <th>До<br> начала</th>
+                      <th>После<br> начала</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="already__stars"><img src="./img/icon__star.svg" alt=""></div>
+                      </td>
+                      <td>1213</td>
+                      <td>432</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="already__stars"><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""></div>
+                      </td>
+                      <td>2018</td>
+                      <td>71</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="already__stars"><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""></div>
+                      </td>
+                      <td>269</td>
+                      <td>100</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="already__stars"><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""></div>
+                      </td>
+                      <td>277</td>
+                      <td>102</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="already__stars"><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""><img src="./img/icon__star.svg" alt=""></div>
+                      </td>
+                      <td>1595</td>
+                      <td>6510</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="already__footer">
+                <p class="already__subtitle">Средний рейтинг по точкам вырос с <span>2,5</span> до <span>4,5</span></p>
+                <p class="already__descr">Срок: 4 месяца</p>
+                <p class="already__descr">Бюджет: 1 млн/₽</p><img class="already__yandex" src="./img/yandex.png" alt="Yandex. Хорошее место. Выбор пользователей Яндекса — 2022"><img class="already__2gis" src="./img/2gis.png" alt="Здесь хорошо. 2GIS">
+              </div>
+            </div>
+          </section>
+          <section class="section section--white contacts">
+            <div class="section__inner contacts__inner">
+              <div class="contacts__grid">
+                <div class="contacts__col">
+                  <h2 class="section__title"><span>Контакты</span></h2>
+                  <form class="form" id="contacts-form" name="contacts-form">
+                    <div class="form__grid">
+                      <div class="field"><label class="field__inner"><input class="input field__input" id="" type="text" placeholder="Введите имя" name="contacts-name" required="required" /></label>
+                        <div class="field__message">Текст ошибки</div>
+                      </div>
+                      <div class="field"><label class="field__inner"><input class="input field__input" id="" type="text" placeholder="Email или телефон" name="contacts-contact" required="required" /></label>
+                        <div class="field__message">Текст ошибки</div>
+                      </div><select class="select" name="contacts-place">
+                        <option value="Выберите должность">Выберите должность</option>
+                        <option value="Директор в компании">Директор в компании</option>
+                        <option value="Маркетолог">Маркетолог</option>
+                        <option value="Продукт менеджер">Продукт менеджер</option>
+                        <option value="Менеджер по продажам">Менеджер по продажам</option>
+                        <option value="Фрилансер">Фрилансер</option>
+                        <option value="Другое">Другое</option>
+                      </select><select class="select" name="contacts-category">
+                        <option value="Выберите категорию бизнеса">Выберите категорию бизнеса</option>
+                        <option value="Недвижимость">Недвижимость</option>
+                        <option value="Туризм">Туризм</option>
+                        <option value="Финансы">Финансы</option>
+                        <option value="Спорт и активный отдых">Спорт и активный отдых</option>
+                        <option value="Кафе и рестораны">Кафе и рестораны</option>
+                        <option value="Дети">Дети</option>
+                        <option value="Бытовая техника и электроника">Бытовая техника и электроника</option>
+                        <option value="Авто">Авто</option>
+                        <option value="Красота и забота о себе">Красота и забота о себе</option>
+                        <option value="Досуг и развлечения">Досуг и развлечения</option>
+                        <option value="Образование">Образование</option>
+                        <option value="Мода и стиль">Мода и стиль</option>
+                        <option value="Товары и услуги для бизнеса">Товары и услуги для бизнеса</option>
+                        <option value="Здоровье">Здоровье</option>
+                        <option value="Продукты и товары">Продукты и товары</option>
+                        <option value="Дом и ремонт">Дом и ремонт</option>
+                      </select><button class="button button--primary form__submit" disabled>
+                        <div class="button__title">Отправить</div>
+                      </button>
+                    </div>
+                    <div class="form__small">Нажимая кнопку «Отправить» вы соглашаетесь с <a class="link" href="#">правилами пользовательского соглашения</a> и <a class="link" href="#">политикой конфиденциальности</a></div>
+                  </form>
+                </div>
+                <div class="contacts__col">
+                  <div class="contacts__map"><script type="text/javascript" charset="utf-8" async="" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A35041b1ea8965b3362130e776db6cd14db687c09aaa1e848b2596fb46ceb95b4&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=false"></script>
+                  </div>
+                </div>
+              </div>
+              <div class="contacts__row">
+                <div class="contacts__item">
+                  <div class="contacts__label">Телефон:</div><a class="contacts__link" href="tel:89872607722">+7 (987) 260-77-22</a>
+                </div>
+                <div class="contacts__item">
+                  <div class="contacts__label">Почта:</div><a class="contacts__link" href="mailto:info@evoteka.ru">info@evoteka.ru</a>
+                </div>
+                <div class="contacts__item">
+                  <div class="contacts__label">Адрес:</div>
+                  <div class="contacts__descr">Респ. Татарстан, г. Казань, ул. Спартаковская 2, «IT-Park имени Башира Рамеева», 2 этаж, оф. 210</div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="hystmodal" id="popup" aria-hidden="true">
+            <div class="hystmodal__wrap">
+              <div class="hystmodal__window popup" role="dialog" aria-modal="true">
+                <div class="popup__inner"><button class="hystmodal__close popup__close" data-hystclose="" title=""><svg class="popup__icon">
+                      <use href="img/svgSprite.svg#icon__cross"></use>
+                    </svg></button>
+                  <div class="popup__form">
+                    <header class="popup__header">
+                      <h2 class="popup__heading">Заполните форму<br>и мы вам перезвоним</h2>
+                    </header>
+                    <form class="form" id="feedback-form" name="feedback-form">
+                      <div class="form__grid">
+                        <div class="field"><label class="field__inner"><input class="input field__input" id="" type="text" placeholder="Введите имя" name="feedback-name" required="required" /></label>
+                          <div class="field__message">Текст ошибки</div>
+                        </div>
+                        <div class="field"><label class="field__inner"><input class="input field__input" id="" type="tel" placeholder="Телефон" name="feedback-phone" required="required" /></label>
+                          <div class="field__message">Текст ошибки</div>
+                        </div>
+                        <div class="field"><label class="field__inner"><input class="input field__input" id="" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" name="feedback-email" required="required" /></label>
+                          <div class="field__message">Текст ошибки</div>
+                        </div><button class="button button--primary form__submit" disabled="disabled">
+                          <div class="button__title">Отправить</div>
+                        </button>
+                      </div>
+                      <div class="form__small">Нажимая кнопку «Отправить» вы соглашаетесь с <a class="link" href="#">правилами пользовательского соглашения</a> и <a class="link" href="#">политикой конфиденциальности</a></div>
+                    </form>
+                    <div class="popup__block">
+                      <div class="popup__block-title">Или напишите<br>нам напрямую</div>
+                      <div class="popup__socials"><a class="popup__social-link" href="#" target="_blank"><svg class="popup__social-icon">
+                            <use href="./img/svgSprite.svg#icon__socials--wa"></use>
+                          </svg></a><a class="popup__social-link" href="#" target="_blank"><svg class="popup__social-icon">
+                            <use href="./img/svgSprite.svg#icon__socials--tg"></use>
+                          </svg></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hystmodal" id="popup-thanks" aria-hidden="true">
+            <div class="hystmodal__wrap">
+              <div class="hystmodal__window popup popup--thanks" role="dialog" aria-modal="true">
+                <div class="popup__inner"><button class="hystmodal__close popup__close" data-hystclose="" title=""><svg class="popup__icon">
+                      <use href="img/svgSprite.svg#icon__cross"></use>
+                    </svg></button>
+                  <div class="popup__center">
+                    <header class="popup__header">
+                      <h2 class="popup__heading">Спасибо за заявку</h2>
+                      <p class="popup__descr">Мы свяжемся с вами в ближайшее время</p>
+                    </header><button class="button button--primary" data-hystclose="">
+                      <div class="button__title">Закрыть</div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page__footer">
+        <div class="footer">
+          <div class="footer__inner">
+            <div class="footer__side">
+              <div class="footer__logo"><svg class="logo">
+                  <use href="./img/svgSprite.svg#logo__evoteka"></use>
+                </svg></div>
+              <div class="footer__descr">Ваш IT-партнер полного цикла, с собственной продуктовой аналитикой, дизайном, веб-и мобильной разработкой</div>
+              <div class="footer__copy"><span></span> © ООО «Эвотека». Все права защищены</div>
+            </div>
+            <div class="footer__main">
+              <div class="footer__links">
+                <div class="footer__links-section">
+                  <div class="footer__links-title">Компания</div>
+                  <div class="footer__links-body"><a class="footer__link" href="#">О нас</a><a class="footer__link" href="#">Вакансии</a><a class="footer__link" href="#">Контакты</a></div>
+                </div>
+                <div class="footer__links-section">
+                  <div class="footer__links-title">Услуги</div>
+                  <div class="footer__links-body"><a class="footer__link" href="#">Сайты и веб-сервисы</a><a class="footer__link" href="#">Мобильная разработка</a><a class="footer__link" href="#">Маркетинговый калькулятор</a></div>
+                </div>
+                <div class="footer__links-section">
+                  <div class="footer__links-title">Практика</div>
+                  <div class="footer__links-body"><a class="footer__link" href="#">Кейсы</a><a class="footer__link" href="#">Блог и новости</a></div>
+                </div>
+              </div>
+              <div class="footer__contacts">
+                <address class="footer__contacts-item"><span>Офис продаж:</span> Респ. Татарстан, г. Казань, ул. Спартаковская 2, «IT-Park Имени Башира Рамеева», 2 этаж, оф. 210</address>
+                <div class="footer__contacts-item"><span>ИНН:</span> 1658201149</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page__darker"></div>
+    </div><script src="./js/bundle.js"></script>
+  </body>
+</html>
