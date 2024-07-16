@@ -15,7 +15,7 @@
   padding: 15px 40px 15px 20px;
   overflow: hidden;
   color: inherit;
-  background: url("../{{icon}}/icon__arrow--down-view") right 15px top 13px no-repeat, var(--back-secondary);
+  background: url("{{icon}}/icon__arrow--down-view") right 15px top 13px no-repeat, var(--back-secondary);
   background-size: 24px 24px;
   border: 1px solid var(--grey-lighten);
   border-radius: 16px;
