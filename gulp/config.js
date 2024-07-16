@@ -1,7 +1,6 @@
 "use strict";
-
-let userName = ``;
-let projectName = ``;
+let userName = `motosasha`;
+let projectName = `evoteka-land`;
 let ghPagesUrl = `https://${userName}.github.io/${projectName}/index.html`;
 let pathToPrefix = ``;
 
