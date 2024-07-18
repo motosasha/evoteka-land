@@ -347,32 +347,41 @@ function getBrowser() {
           <section class="section section--white section-tiles">
             <div class="section__inner section-tiles__inner">
               <h2 class="section__title">Чем мы отличаемся от остальных сервисов?</h2>
-              <div class="tile">
-                <div class="tile__title">Остальные сервисы</div>
-                <ul class="tile__list">
-                  <li class="tile__li">Отзывы размещаются специальными ботами с непроверенных IP-адресов с помощью антидетект бразуеров</li>
-                  <li class="tile__li">Пишут тексты с помощью сторонних людей, которые зарабатывают на написании отзывов</li>
-                  <li class="tile__li">Отзывы такими методами размещаются крайне медленно (есть ограничение на прохождение модерации)</li>
-                </ul>
-              </div>
-              <div class="tile">
-                <div class="tile__title">Риски для вас</div>
-                <div class="tile__descr">Площадки отзовики блокируют профиль вашей компании и аккаунт попадает в бан с удалением всех отзывов</div>
-              </div>
-              <div class="tile">
-                <div class="tile__title">Как работает наш сервис</div>
-                <ul class="tile__list">
-                  <li class="tile__li">Вы размещаете макет с QR кодом, который ведет на сайт -одностраничник, у себя в точках или на официальном сайте - мотивируете клиента оставить отзыв за отдельную плату (сумму вы устанавливаете сами)</li>
-                  <li class="tile__li">Ваши настоящие клиенты мотивируются оставить о вас хороший отзыв</li>
-                  <li class="tile__li">Бот автоматически проверяет отзыв и поощряет клиента (минимизация ручной работы)</li>
-                </ul>
-              </div>
-              <div class="tile">
-                <div class="tile__title">Плюсы для вас</div>
-                <ul class="tile__list">
-                  <li class="tile__li">Спокойное прохождение модерации отзывов без удалений и банов аккаунта.</li>
-                  <li class="tile__li">Нет ограничений по количеству отзывов.</li>
-                </ul>
+              <div class="section-tiles__row section-tiles__row--tiles">
+                <div class="tile-dif">
+                  <div class="tile-dif__title">Остальные сервисы</div>
+                  <ul class="tile-dif__list">
+                    <li class="tile-dif__li">Как правило другие сервисы пытаются накрутить отзывы с помощью ботов. Все рекламные площадки это прекрасно понимают и модераторы это видят</li>
+                    <li class="tile-dif__li">Тексты пишутся с помощью копирайтеров, которые зарабатывают на написании отзывов. Такие отзывы часто блокируются, потому что модераторы понимают, что клиент не посещал ваш офис.</li>
+                  </ul>
+                  <div class="tile-dif__block">
+                    <div class="tile-dif__row"><img class="tile-dif__icon" src="./img/icon__dislike.svg" alt="">
+                      <div class="tile-dif__subtitle">Что в таком случае произойдет?</div>
+                    </div>
+                    <ul class="tile-dif__list">
+                      <li class="tile-dif__li">Площадки-отзовики блокируют профиль вашей компании с удалением всех отзывов, вплоть до бана ваших рабочих ip адресов</li>
+                      <li class="tile-dif__li">Рекламный бюджет потрачен зря</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="tile-dif tile-dif--alt">
+                  <div class="tile-dif__title">Как работает наш сервис</div>
+                  <ul class="tile-dif__list">
+                    <li class="tile-dif__li">Процесс написания отзыва максимально органический, пишется настоящими людьми</li>
+                    <li class="tile-dif__li">Вы мотивируете ваших клиентов оставить о вас положительный отзыв, тем самым создаете большую клиентоориентированность</li>
+                    <li class="tile-dif__li">Ваше участие в данном процессе минимально, так как сервис полностью автоматизирован</li>
+                  </ul>
+                  <div class="tile-dif__block">
+                    <div class="tile-dif__row"><img class="tile-dif__icon" src="./img/icon__like.svg" alt="">
+                      <div class="tile-dif__subtitle">Плюсы для вас</div>
+                    </div>
+                    <ul class="tile-dif__list">
+                      <li class="tile-dif__li">100% органический рост</li>
+                      <li class="tile-dif__li">Вы сами можете управлять ростом положительных отзывов.</li>
+                      <li class="tile-dif__li">Нет ограничений по количеству отзывов.</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -594,8 +603,20 @@ function getBrowser() {
                   </form>
                 </div>
                 <div class="contacts__col">
-                  <div class="contacts__map"><script type="text/javascript" charset="utf-8" async="" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A35041b1ea8965b3362130e776db6cd14db687c09aaa1e848b2596fb46ceb95b4&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=false"></script>
-                  </div>
+                  <ul class="contacts__list">
+                    <li class="contacts__li">
+                      <h3 class="contacts__list-title">Отправьте заявку</h3>
+                      <p class="contacts__list-descr">Мы перезвоним вам в течении 24 часов</p>
+                    </li>
+                    <li class="contacts__li">
+                      <h3 class="contacts__list-title">Ответьте на ваш звонок</h3>
+                      <p class="contacts__list-descr">Проведем демонстрацию и рассчитаем бюджет</p>
+                    </li>
+                    <li class="contacts__li">
+                      <h3 class="contacts__list-title">Запустите рекламу</h3>
+                      <p class="contacts__list-descr">Расскажите нам в своем бизнесе и оплатите Рекламную подписку</p>
+                    </li>
+                  </ul>
                 </div>
               </div>
               <div class="contacts__row">
