@@ -20,7 +20,7 @@ mixin popup(data, mods)
       }
     }
 
-  .hystmodal#popup(class=allMods, aria-hidden="true")&attributes(attributes)
+  #popup.hystmodal(class=allMods, aria-hidden="true")&attributes(attributes)
     .hystmodal__wrap
       .hystmodal__window.popup(role="dialog", aria-modal="true")
         .popup__inner
@@ -30,7 +30,7 @@ mixin popup(data, mods)
           .popup__form
             header.popup__header
               h2.popup__heading Заполните форму<br>и мы вам перезвоним
-            form.form#feedback-form(name="feedback-form")
+            form#feedback-form.form(name="feedback-form")
               .form__grid
                 +field("text", "", "Введите имя", "", "", "feedback-name")(required)
                 +field("phone", "", "Телефон", "", "", "feedback-phone")(required)
@@ -49,7 +49,7 @@ mixin popup(data, mods)
                     use(href= path.icon + "icon__socials--tg")
 
 mixin popup-thanks(data)
-  .hystmodal#popup-thanks(aria-hidden="true")
+  #popup-thanks.hystmodal(aria-hidden="true")
     .hystmodal__wrap
       .hystmodal__window.popup.popup--thanks(role="dialog", aria-modal="true")
         .popup__inner

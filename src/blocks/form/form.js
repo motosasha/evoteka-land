@@ -38,11 +38,11 @@ ready(function () {
       feedbackFormCheck(feedbackForm, formButton);
     });
 
-    userPhoneField.addEventListener("input", (e) => {
+    userPhoneField.addEventListener("input", () => {
       feedbackFormCheck(feedbackForm, formButton);
     });
 
-    userEmailField.addEventListener("input", (e) => {
+    userEmailField.addEventListener("input", () => {
       feedbackFormCheck(feedbackForm, formButton);
     });
   }

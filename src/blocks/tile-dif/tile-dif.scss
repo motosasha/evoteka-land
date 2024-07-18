@@ -1,0 +1,71 @@
+@use "../../scss/breakpoints";
+@use "../../scss/mixins/text-styles";
+
+.tile-dif {
+  $block-name: &; // #{$block-name}__element
+
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  background-color: #f8f8f8;
+  border-radius: 18px;
+
+  @media screen and (min-width: breakpoints.$screen-t) {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  &--alt {
+    color: var(--front-inverted);
+    background: var(--brand-gradient);
+    box-shadow: 0 4px 40px 0 rgba(156 16 95 / 24%);
+  }
+
+  &__title {
+    @include text-styles.heading-3;
+
+    margin: 0;
+  }
+
+  &__list {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  &__li {
+    @include text-styles.mobile-text-1;
+  }
+
+  &__block {
+    display: grid;
+    gap: 16px;
+    padding: 12px;
+    color: var(--front-primary);
+    background-color: var(--back-secondary);
+    border-radius: 8px;
+
+    #{$block-name}--alt & {
+      @media screen and (min-width: breakpoints.$screen-t) {
+        background: url({{img}}/dif-bg.jpg) no-repeat top right, var(--back-secondary);
+        background-size: 210px 144px;
+      }
+
+      @media screen and (min-width: breakpoints.$screen-dl) {
+        background-size: 280px 192px;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  &__subtitle {
+    font-weight: 600;
+    font-size: 18px;
+  }
+}

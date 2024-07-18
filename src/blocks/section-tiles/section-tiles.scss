@@ -60,6 +60,16 @@
         margin-bottom: 128px;
       }
     }
+
+    &--tiles {
+      @media screen and (min-width: breakpoints.$screen-ti) {
+      	grid-template-columns: 1fr;
+      }
+
+      @media screen and (min-width: breakpoints.$screen-tl) {
+      	grid-template-columns: 1fr 1fr;
+      }
+    }
   }
 
   &__list {

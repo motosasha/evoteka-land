@@ -3,38 +3,26 @@ import SimpleBar from "simplebar";
 import SlimSelect from "slim-select";
 
 ready(function () {
-  const placeSelect = document.querySelector("[name='contacts-place']");
-  const categorySelect = document.querySelector("[name='contacts-category']");
+  const selects = document.querySelectorAll("select");
 
-  new SlimSelect({
-    select: placeSelect,
-    settings: {
-      showSearch: false,
-    },
-    events: {
-      afterChange: () => {
-        const id = placeSelect.dataset.id;
-        const drop = document.querySelector(`.ss-content[data-id="${id}"]`);
-        const list = drop.querySelector(".ss-list");
-        new SimpleBar(list, { autoHide: false });
-      },
-    },
-  });
-
-  new SlimSelect({
-    select: "[name='contacts-category']",
-    settings: {
-      showSearch: false,
-    },
-    events: {
-      afterChange: () => {
-        const id = categorySelect.dataset.id;
-        const drop = document.querySelector(`.ss-content[data-id="${id}"]`);
-        const list = drop.querySelector(".ss-list");
-        new SimpleBar(list, { autoHide: false });
-      },
-    },
-  });
+  if (selects && selects.length) {
+    selects.forEach((select) => {
+      new SlimSelect({
+        select: select,
+        settings: {
+          showSearch: false,
+        },
+        events: {
+          afterChange: () => {
+            const id = select.dataset.id;
+            const drop = document.querySelector(`.ss-content[data-id="${id}"]`);
+            const list = drop.querySelector(".ss-list");
+            new SimpleBar(list, { autoHide: false });
+          },
+        },
+      });
+    });
+  }
 
   setTimeout(() => {
     const selectDrops = document.querySelectorAll(".ss-list");

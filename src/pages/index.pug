@@ -191,26 +191,33 @@ block content
     section.section.section--white.section-tiles
       .section__inner.section-tiles__inner
         h2.section__title Чем мы отличаемся от остальных сервисов?
-        .tile
-          .tile__title Остальные сервисы
-          ul.tile__list
-            li.tile__li Отзывы размещаются специальными ботами с непроверенных IP-адресов с помощью антидетект бразуеров
-            li.tile__li Пишут тексты с помощью сторонних людей, которые зарабатывают на написании отзывов
-            li.tile__li Отзывы такими методами размещаются крайне медленно (есть ограничение на прохождение модерации)
-        .tile
-          .tile__title Риски для вас
-          .tile__descr Площадки отзовики блокируют профиль вашей компании и аккаунт попадает в бан с удалением всех отзывов
-        .tile
-          .tile__title Как работает наш сервис
-          ul.tile__list
-            li.tile__li Вы размещаете макет с QR кодом, который ведет на сайт -одностраничник, у себя в точках или на официальном сайте - мотивируете клиента оставить отзыв за отдельную плату (сумму вы устанавливаете сами)
-            li.tile__li Ваши настоящие клиенты мотивируются оставить о вас хороший отзыв
-            li.tile__li Бот автоматически проверяет отзыв и поощряет клиента (минимизация ручной работы)
-        .tile
-          .tile__title Плюсы для вас
-          ul.tile__list
-            li.tile__li Спокойное прохождение модерации отзывов без удалений и банов аккаунта.
-            li.tile__li Нет ограничений по количеству отзывов.
+        .section-tiles__row.section-tiles__row--tiles
+          .tile-dif
+            .tile-dif__title Остальные сервисы
+            ul.tile-dif__list
+              li.tile-dif__li Как правило другие сервисы пытаются накрутить отзывы с помощью ботов. Все рекламные площадки это прекрасно понимают и модераторы это видят
+              li.tile-dif__li Тексты пишутся с помощью копирайтеров, которые зарабатывают на написании отзывов. Такие отзывы часто блокируются, потому что модераторы понимают, что клиент не посещал ваш офис.
+            .tile-dif__block
+              .tile-dif__row
+                img.tile-dif__icon(src= path.img + "icon__dislike.svg", alt="")
+                .tile-dif__subtitle Что в таком случае произойдет?
+              ul.tile-dif__list
+                li.tile-dif__li Площадки-отзовики блокируют профиль вашей компании с удалением всех отзывов, вплоть до бана ваших рабочих ip адресов
+                li.tile-dif__li Рекламный бюджет потрачен зря
+          .tile-dif.tile-dif--alt
+            .tile-dif__title Как работает наш сервис
+            ul.tile-dif__list
+              li.tile-dif__li Процесс написания отзыва максимально органический, пишется настоящими людьми
+              li.tile-dif__li Вы мотивируете ваших клиентов оставить о вас положительный отзыв, тем самым создаете большую клиентоориентированность
+              li.tile-dif__li Ваше участие в данном процессе минимально, так как сервис полностью автоматизирован
+            .tile-dif__block
+              .tile-dif__row
+                img.tile-dif__icon(src= path.img + "icon__like.svg", alt="")
+                .tile-dif__subtitle Плюсы для вас
+              ul.tile-dif__list
+                li.tile-dif__li 100% органический рост
+                li.tile-dif__li Вы сами можете управлять ростом положительных отзывов.
+                li.tile-dif__li Нет ограничений по количеству отзывов.
 
     section.section.section--white.section-imaged
       .section__inner.section-imaged__inner
@@ -371,7 +378,14 @@ block content
               .form__grid
                 +field("text", "", "Введите имя", "", "", "contacts-name")(required)
                 +field("text", "", "Email или телефон", "", "", "contacts-contact")(required)
-                +select(["Выберите должность", "Директор в компании", "Маркетолог", "Продукт менеджер", "Менеджер по продажам", "Фрилансер", "Другое"], "", "contacts-place")
+                +select(
+                  ["Выберите должность",
+                    "Директор в компании",
+                    "Маркетолог",
+                    "Продукт менеджер",
+                    "Менеджер по продажам",
+                    "Фрилансер",
+                    "Другое"], "", "contacts-place")
                 +select(
                   ["Выберите категорию бизнеса",
                     "Недвижимость",
@@ -394,8 +408,16 @@ block content
                   .button__title Отправить
               .form__small Нажимая кнопку «Отправить» вы соглашаетесь с #[a.link(href="#") правилами пользовательского соглашения] и #[a.link(href="#") политикой конфиденциальности]
           .contacts__col
-            .contacts__map
-              script(type="text/javascript", charset="utf-8", async="", src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A35041b1ea8965b3362130e776db6cd14db687c09aaa1e848b2596fb46ceb95b4&width=100%25&height=100%&lang=ru_RU&scroll=false")
+            ul.contacts__list
+              li.contacts__li
+                h3.contacts__list-title Отправьте заявку
+                p.contacts__list-descr Мы перезвоним вам в течении 24 часов
+              li.contacts__li
+                h3.contacts__list-title Ответьте на ваш звонок
+                p.contacts__list-descr Проведем демонстрацию и рассчитаем бюджет
+              li.contacts__li
+                h3.contacts__list-title Запустите рекламу
+                p.contacts__list-descr Расскажите нам в своем бизнесе и оплатите Рекламную подписку
         .contacts__row
           .contacts__item
             .contacts__label Телефон:

@@ -1,6 +1,7 @@
 @use "../../scss/breakpoints";
 @use "../../scss/mixins/brand-text";
 @use "../../scss/mixins/flexbox";
+@use "../../scss/mixins/list-reset";
 @use "../../scss/mixins/text-styles";
 
 .contacts {
@@ -25,20 +26,6 @@
 
     @media screen and (min-width: breakpoints.$screen-d) {
       gap: 100px;
-    }
-  }
-
-  &__map {
-    height: 420px;
-    overflow: hidden;
-    border-radius: 24px;
-
-    @media screen and (min-width: breakpoints.$screen-ti) {
-      height: 100%;
-    }
-
-    iframe {
-      height: 100%;
     }
   }
 
@@ -115,5 +102,88 @@
     .form__small { // stylelint-disable-line
       max-width: 480px;
     }
+  }
+
+  &__list {
+    @include list-reset.list-reset;
+
+    display: grid;
+    gap: 36px;
+    padding: 12px;
+    overflow: hidden;
+    background: #f8f8f8;
+    border-radius: 18px;
+    counter-reset: cList;
+
+    @media screen and (min-width: breakpoints.$screen-t) {
+      align-content: center;
+      height: 100%;
+      padding: 24px;
+    }
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      padding: 80px;
+    }
+  }
+
+  &__li {
+    position: relative;
+    padding-left: 58px;
+    counter-increment: cList;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+      padding-left: 64px;
+    }
+
+    & + &::before {
+      position: absolute;
+      top: -18px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #e9e9e9;
+      content: "";
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.625;
+      border: 1px solid #bdbdbd;
+      border-radius: 50%;
+      content: counter(cList);
+
+      @media screen and (min-width: breakpoints.$screen-d) {
+        @include text-styles.mobile-heading-2;
+
+        width: 47px;
+        height: 47px;
+      }
+    }
+  }
+
+  &__list-title {
+    @include text-styles.mobile-heading-2;
+    @include brand-text.brand-text;
+
+    margin: 0 0 8px;
+
+    @media screen and (min-width: breakpoints.$screen-d) {
+    	@include text-styles.heading-3;
+    }
+  }
+
+  &__list-descr {
+    @include text-styles.mobile-text-1;
+
+    margin: 0;
   }
 }
