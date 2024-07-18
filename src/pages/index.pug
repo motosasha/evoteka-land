@@ -377,8 +377,9 @@ block content
             form#contacts-form.form(name="contacts-form")
               .form__grid
                 +field("text", "", "Введите имя", "", "", "contacts-name")(required)
-                +field("text", "", "Email или телефон", "", "", "contacts-contact")(required)
-                +select(
+                +field("email", "", "Email", "", "", "contacts-email")(required)
+                +field("phone", "", "Телефон", "", "", "contacts-phone")(required)
+                //-+select(
                   ["Выберите должность",
                     "Директор в компании",
                     "Маркетолог",
@@ -416,8 +417,8 @@ block content
                 h3.contacts__list-title Ответьте на ваш звонок
                 p.contacts__list-descr Проведем демонстрацию и рассчитаем бюджет
               li.contacts__li
-                h3.contacts__list-title Запустите рекламу
-                p.contacts__list-descr Расскажите нам в своем бизнесе и оплатите Рекламную подписку
+                h3.contacts__list-title Используйте "АвтоОтзывы" для вашего бизнеса
+                p.contacts__list-descr Мы поможем вам в управлении рейтингов компании, а также повысим трафик и увеличим продажи
         .contacts__row
           .contacts__item
             .contacts__label Телефон:

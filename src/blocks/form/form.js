@@ -6,8 +6,8 @@ ready(function () {
 
   if (contactsForm) {
     const userNameField = contactsForm.querySelector("[name='contacts-name']");
-    const userContactField = contactsForm.querySelector("[name='contacts-contact']");
-    const userPlaceField = contactsForm.querySelector("[name='contacts-place']");
+    const userEmailField = contactsForm.querySelector("[name='contacts-email']");
+    const userPhoneField = contactsForm.querySelector("[name='contacts-phone']");
     const userCategoryField = contactsForm.querySelector("[name='contacts-category']");
     const formButton = contactsForm.querySelector("button");
 
@@ -15,11 +15,11 @@ ready(function () {
       contactsFormCheck(contactsForm, formButton);
     });
 
-    userContactField.addEventListener("input", () => {
+    userEmailField.addEventListener("input", () => {
       contactsFormCheck(contactsForm, formButton);
     });
 
-    userPlaceField.addEventListener("change", () => {
+    userPhoneField.addEventListener("change", () => {
       contactsFormCheck(contactsForm, formButton);
     });
 
@@ -48,18 +48,20 @@ ready(function () {
   }
 });
 
-const regExp = /^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const regExpEmail = /^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
 function contactsFormCheck(form, submit) {
   const userNameValue = form.querySelector("[name='contacts-name']").value;
-  const userContactValue = form.querySelector("[name='contacts-contact']").value;
-  const userPlaceValue = form.querySelector("[name='contacts-place']").value;
+  const userEmailValue = form.querySelector("[name='contacts-email']").value;
+  const userPhoneValue = form.querySelector("[name='contacts-phone']").value;
   const userCategoryValue = form.querySelector("[name='contacts-category']").value;
+
+  const isEmailCorrect = regExpEmail.test(userEmailValue);
 
   const noEmptyValues =
     !!userNameValue &&
-    !!userContactValue &&
-    userPlaceValue !== "Выберите должность" &&
+    !!isEmailCorrect &&
+    userPhoneValue.length >= 12 &&
     userCategoryValue !== "Выберите категорию бизнеса";
 
   noEmptyValues ? submit.removeAttribute("disabled") : submit.setAttribute("disabled", "true");
@@ -70,8 +72,8 @@ function feedbackFormCheck(form, submit) {
   const userPhoneValue = form.querySelector("[name='feedback-phone']").value;
   const userEmailValue = form.querySelector("[name='feedback-email']").value;
 
-  const isPhoneCorrect = regExp.test(userEmailValue);
-  const noEmptyValues = !!userNameValue && userPhoneValue.length >= 12 && isPhoneCorrect;
+  const isEmailCorrect = regExpEmail.test(userEmailValue);
+  const noEmptyValues = !!userNameValue && userPhoneValue.length >= 12 && isEmailCorrect;
 
   noEmptyValues ? submit.removeAttribute("disabled") : submit.setAttribute("disabled", "true");
 }
