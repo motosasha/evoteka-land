@@ -90,7 +90,7 @@ function getBrowser() {
                 <use href="./img/svgSprite.svg#logo__evoteka"></use>
               </svg></div>
             <div class="header__nav-wrap">
-              <nav class="header__nav"><a class="header__nav-item" href="#about">О сервисе</a><a class="header__nav-item" href="#forWhom">Кому подойдет?</a><a class="header__nav-item" href="#method">Принцип работы</a><a class="header__nav-item" href="#rates">Тарифы</a></nav>
+              <nav class="header__nav"><a class="header__nav-item" href="#about">О сервисе</a><a class="header__nav-item" href="#forWhom">Кому подойдет</a><a class="header__nav-item" href="#method">Принцип работы</a><a class="header__nav-item" href="#rates">Тарифы</a></nav>
             </div>
             <div class="header__actions">
               <div class="header__row"><a class="header__phone" href="tel:88000000000">8-800-000-00-00</a>
@@ -109,7 +109,7 @@ function getBrowser() {
             </button>
           </div>
           <div class="header__drop">
-            <nav class="header__nav"><a class="header__nav-item" href="#about">О сервисе</a><a class="header__nav-item" href="#forWhom">Кому подойдет?</a><a class="header__nav-item" href="#method">Принцип работы</a><a class="header__nav-item" href="#rates">Тарифы</a></nav>
+            <nav class="header__nav"><a class="header__nav-item" href="#about">О сервисе</a><a class="header__nav-item" href="#forWhom">Кому подойдет</a><a class="header__nav-item" href="#method">Принцип работы</a><a class="header__nav-item" href="#rates">Тарифы</a></nav>
             <div class="header__row"><a class="header__phone" href="tel:88000000000">8-800-000-00-00</a>
               <div class="header__socials"><a class="header__social-link" href="#" target="_blank"><svg class="header__social-icon">
                     <use href="./img/svgSprite.svg#icon__socials--wa"></use>
@@ -567,17 +567,12 @@ function getBrowser() {
                       <div class="field"><label class="field__inner"><input class="input field__input" id="" type="text" placeholder="Введите имя" name="contacts-name" required="required" /></label>
                         <div class="field__message">Текст ошибки</div>
                       </div>
-                      <div class="field"><label class="field__inner"><input class="input field__input" id="" type="text" placeholder="Email или телефон" name="contacts-contact" required="required" /></label>
+                      <div class="field"><label class="field__inner"><input class="input field__input" id="" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" name="contacts-email" required="required" /></label>
                         <div class="field__message">Текст ошибки</div>
-                      </div><select class="select" name="contacts-place">
-                        <option value="Выберите должность">Выберите должность</option>
-                        <option value="Директор в компании">Директор в компании</option>
-                        <option value="Маркетолог">Маркетолог</option>
-                        <option value="Продукт менеджер">Продукт менеджер</option>
-                        <option value="Менеджер по продажам">Менеджер по продажам</option>
-                        <option value="Фрилансер">Фрилансер</option>
-                        <option value="Другое">Другое</option>
-                      </select><select class="select" name="contacts-category">
+                      </div>
+                      <div class="field"><label class="field__inner"><input class="input field__input" id="" type="tel" placeholder="Телефон" name="contacts-phone" required="required" /></label>
+                        <div class="field__message">Текст ошибки</div>
+                      </div><select class="select" name="contacts-category">
                         <option value="Выберите категорию бизнеса">Выберите категорию бизнеса</option>
                         <option value="Недвижимость">Недвижимость</option>
                         <option value="Туризм">Туризм</option>
@@ -613,8 +608,8 @@ function getBrowser() {
                       <p class="contacts__list-descr">Проведем демонстрацию и рассчитаем бюджет</p>
                     </li>
                     <li class="contacts__li">
-                      <h3 class="contacts__list-title">Запустите рекламу</h3>
-                      <p class="contacts__list-descr">Расскажите нам в своем бизнесе и оплатите Рекламную подписку</p>
+                      <h3 class="contacts__list-title">Используйте "АвтоОтзывы" для вашего бизнеса</h3>
+                      <p class="contacts__list-descr">Мы поможем вам в управлении рейтингов компании, а также повысим трафик и увеличим продажи</p>
                     </li>
                   </ul>
                 </div>
@@ -700,7 +695,7 @@ function getBrowser() {
                   <use href="./img/svgSprite.svg#logo__evoteka"></use>
                 </svg></div>
               <div class="footer__descr">Ваш IT-партнер полного цикла, с собственной продуктовой аналитикой, дизайном, веб-и мобильной разработкой</div>
-              <div class="footer__copy"><span></span> © ООО «Эвотека». Все права защищены</div>
+              <div class="footer__copy"><span></span> © ООО «Эвотека». ООО "Окью Компани".<br> Все права защищены</div><a class="footer__policy" href="#">Пользовательское соглашение</a>
             </div>
             <div class="footer__main">
               <div class="footer__links">
